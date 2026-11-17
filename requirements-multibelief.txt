@@ -1,0 +1,3 @@
+# Tested CPU environment for Python 3.10 (Windows and Linux).
+-c constraints-multibelief.txt
+-e .[test]

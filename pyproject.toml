@@ -22,13 +22,21 @@ dependencies = [
     "matplotlib",
     "networkx",
     "six",
+    "scipy",
     "torch",
     "dgl"
 ]
 
 [project.urls]
-Repository = "https://github.com/alexandroskoliousis/polygraphs"
+Repository = "https://github.com/DavidFreeborn/polygraphs-multibelief"
+Upstream = "https://github.com/alexandroskoliousis/polygraphs"
 Documentation = "https://akoliousis.com/polygraphs/"
 
 [project.scripts]
 polygraphs = "polygraphs.run:run"
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[tool.pytest.ini_options]
+markers = ["bnlearn: requires R with bnlearn, gRain and jsonlite"]

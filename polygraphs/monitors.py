@@ -5,6 +5,7 @@ import os
 import abc
 import torch
 import h5py
+from urllib.parse import quote
 
 from . import timer
 
@@ -113,6 +114,17 @@ class SnapshotHook(BasicHook):
         grp = f.require_group("beliefs")
         # Create new dataset
         grp.create_dataset(str(step), data=beliefs)
+
+        for name, value in polygraph.ndata.items():
+            if name.startswith("belief:"):
+                grp = f.require_group("beliefs_by_node/" + quote(name[7:], safe=""))
+                grp.attrs["node"] = name[7:]
+                grp.create_dataset(str(step), data=value.cpu().numpy())
+            elif name in ("belief_joint", "expected_payoff", "private_payoffs"):
+                f.require_group(name).create_dataset(str(step), data=value.cpu().numpy())
+        if "reliability_belief" in polygraph.edata:
+            f.require_group("reliability_belief").create_dataset(
+                str(step), data=polygraph.edata["reliability_belief"].cpu().numpy())
         
         # Store messages
         if self._messages:

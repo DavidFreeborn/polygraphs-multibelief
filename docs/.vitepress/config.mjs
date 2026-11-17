@@ -122,6 +122,7 @@ function sidebarGuide() {
       items: [
         { text: "PolyGraph OPs", link: "/guide/ops/polygraph-ops" },
         { text: "Complex OPs", link: "/guide/ops/complex" },
+        { text: "Multibelief Networks", link: "/guide/ops/multibelief" },
         { text: "Creating a Custom OP", link: "/guide/ops/custom" },
       ],
     },

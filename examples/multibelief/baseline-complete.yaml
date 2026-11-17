@@ -1,0 +1,22 @@
+op: MultiBeliefOp
+device: cpu
+seed: 1729
+epsilon: 0.05
+trials: 10
+network:
+  kind: complete
+  size: 10
+  selfloop: true
+simulation:
+  steps: 200
+  repeats: 1
+  results: results/multibelief/auto
+logging:
+  enabled: true
+  interval: 20
+snapshots:
+  enabled: true
+  interval: 1
+multibelief:
+  backend: bnlearn
+  case: baseline

@@ -1,0 +1,49 @@
+op: MultiBeliefOp
+device: cpu
+seed: 1729
+epsilon: 0.05
+trials: 10
+network:
+  kind: cycle
+  size: 6
+  selfloop: true
+simulation:
+  steps: 200
+  repeats: 1
+  results: results/multibelief/auto
+logging:
+  enabled: true
+  interval: 20
+snapshots:
+  enabled: true
+  interval: 1
+multibelief:
+  backend: bnlearn
+  case: custom
+  model:
+    nodes:
+    - name: H
+      cpt:
+      - 0.5
+      - 0.5
+    - name: S
+      cpt:
+      - 0.5
+      - 0.5
+    - name: C
+      parents:
+      - H
+      cpt:
+      - - 0.8
+        - 0.2
+      - - 0.1
+        - 0.9
+  observation:
+    parents:
+    - H
+    - S
+    probability:
+    - - 0.475
+      - 0.45
+    - - 0.525
+      - 0.55

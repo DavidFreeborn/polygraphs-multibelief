@@ -212,36 +212,41 @@ def simulate(params, op=None, **meta):  # pylint: disable=invalid-name
         graph = graph.to(device=params.device)
         # Create a model with given configuration
         model = op(graph, params)
-        # Export graph (beliefs are initialised)
-        prefix = f"{(idx + 1):0{len(str(params.simulation.repeats))}d}"
-        _storegraph(params, graph, prefix)
-        # Set model in evaluation mode
-        model.eval()
-        # Create hooks
-        hooks = []
-        if params.logging.enabled:
-            # Create logging hook
-            hooks += [monitors.MonitorHook(interval=params.logging.interval)]
-        if params.snapshots.enabled:
-            # Create snaphot hook
-            hooks += [
-                monitors.SnapshotHook(
-                    interval=params.snapshots.interval,
-                    messages=params.snapshots.messages,
-                    location=params.simulation.results,
-                    filename=f"{prefix}.hd5",
-                )
-            ]
-        # Run simulation
-        result = simulate_(
-            graph,
-            model,
-            steps=params.simulation.steps,
-            mistrust=params.mistrust,
-            lowerupper=params.lowerupper,
-            upperlower=params.upperlower,
-            hooks=hooks,
-        )
+        try:
+            # Export graph (beliefs are initialised)
+            prefix = f"{(idx + 1):0{len(str(params.simulation.repeats))}d}"
+            _storegraph(params, graph, prefix)
+            if hasattr(model, "belief_metadata") and params.simulation.results:
+                filename = os.path.join(params.simulation.results, f"{prefix}.beliefs.json")
+                with open(filename, "w", encoding="utf-8") as stream:
+                    json.dump(model.belief_metadata(), stream, indent=2)
+            # Set model in evaluation mode
+            model.eval()
+            # Create hooks
+            hooks = []
+            if params.logging.enabled:
+                hooks += [monitors.MonitorHook(interval=params.logging.interval)]
+            if params.snapshots.enabled:
+                hooks += [
+                    monitors.SnapshotHook(
+                        interval=params.snapshots.interval,
+                        messages=params.snapshots.messages,
+                        location=params.simulation.results,
+                        filename=f"{prefix}.hd5",
+                    )
+                ]
+            result = simulate_(
+                graph,
+                model,
+                steps=params.simulation.steps,
+                mistrust=params.mistrust,
+                lowerupper=params.lowerupper,
+                upperlower=params.upperlower,
+                hooks=hooks,
+            )
+        finally:
+            if hasattr(model, "close"):
+                model.close()
         results.add(*result)
         log.info(
             "Sim #{:04d}: "
@@ -259,7 +264,7 @@ def simulate(params, op=None, **meta):  # pylint: disable=invalid-name
 
 
 def simulate_(
-    graph, model, steps=1, hooks=None, mistrust=0.0, lowerupper=0.5, upperlower=0.99
+    graph, model, steps=1, hooks=None, mistrust=0.0, lowerupper=0.99, upperlower=0.5
 ):
     """
     Runs a simulation either for a finite number of steps or until convergence.
@@ -291,13 +296,18 @@ def simulate_(
         # - Are beliefs undefined (contain nan or inf)?
         # - Has the network converged?
         # - Is it polarised?
-        terminated = (
-            undefined(graph),
-            converged(graph, upperlower=upperlower, lowerupper=lowerupper),
-            polarized(
-                graph, upperlower=upperlower, lowerupper=lowerupper, mistrust=mistrust
-            ),
-        )
+        if hasattr(model, "termination"):
+            terminated = model.termination(
+                graph, lowerupper=lowerupper, upperlower=upperlower
+            )
+        else:
+            terminated = (
+                undefined(graph),
+                converged(graph, upperlower=upperlower, lowerupper=lowerupper),
+                polarized(
+                    graph, upperlower=upperlower, lowerupper=lowerupper, mistrust=mistrust
+                ),
+            )
         if any(terminated):
             break
     duration = clock.dt()
@@ -307,7 +317,10 @@ def simulate_(
             for hook in hooks:
                 hook.conclude(step, graph)
         # Which action did the network decide to take?
-        act = consensus(graph, lowerupper=lowerupper)
+        if hasattr(model, "consensus"):
+            act = model.consensus(graph)
+        else:
+            act = consensus(graph, lowerupper=lowerupper)
     else:
         # Beliefs are undefined, and so is the action
         act = "?"

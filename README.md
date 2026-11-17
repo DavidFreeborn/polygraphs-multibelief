@@ -7,8 +7,43 @@
 
 PolyGraphs is a scaleable framework for performing simulations on networks built using PyTorch and DGL that can run on CPUs and GPUs.
 
+This fork adds Bayesian belief networks to individual agents. `MultiBeliefOp`
+propagates evidence through connected beliefs; `BayesianReliabilityOp` jointly
+learns a hypothesis and the reliability of each neighbour. Existing PolyGraphs
+operations remain available.
+
+## Multibelief Networks
+
+Install this fork from source in a Python 3.10 environment:
+
+```bash
+git clone https://github.com/DavidFreeborn/polygraphs-multibelief.git
+cd polygraphs-multibelief
+python -m pip install -r requirements-multibelief.txt
+```
+
+The default backend uses the **R** packages bnlearn and gRain for exact inference:
+
+```r
+install.packages(c("bnlearn", "gRain", "jsonlite"))
+```
+
+Put `Rscript` on your path, or set `POLYGRAPHS_RSCRIPT` to its full path.
+An independent exact Python backend is available with `multibelief.backend: numpy`.
+These new operations currently run on CPU.
+
+```bash
+polygraphs -f examples/multibelief/meta-cycle.yaml
+python -m pytest tests
+```
+
+The [multibelief guide](docs/guide/ops/multibelief.md) explains the models,
+configuration, evidence semantics and validation. The [examples](examples/multibelief)
+include the two multibelief models, propaganda and decision controls, the three
+factionalization cases, learned source reliability, and a custom belief network.
+
 ## Getting Started
-PolyGraphs requires and appropriately configured version of PyTorch and DGL before installation, see the [getting started guide](https://akoliousis.com/polygraphs/guide/introduction/getting-started) for more details. You can install the PolyGraphs library via PyPi:
+The upstream PolyGraphs release requires an appropriately configured version of PyTorch and DGL; see the [getting started guide](https://akoliousis.com/polygraphs/guide/introduction/getting-started). The PyPI release does not contain this fork's multibelief operations:
 
 ```bash
 pip install polygraphs
@@ -32,4 +67,4 @@ Ball, B., Koliousis, A., Mohanan, A. & Peacey, M. [Computational philosophy: ref
 Ball, B., Koliousis, A., Mohanan, A. & Peacey, M. [Misinformation and higher-order evidence](https://doi.org/10.1057/s41599-024-03806-8). Humanit Soc Sci Commun 11, 1294 (2024).
 
 ## Contributing
-Please file an [issue](https://github.com/alexandroskoliousis/polygraphs/issues) if you encounter a bug or have any suggestions. Bug-fixes, contributions, new features and extensions are welcomed through discussion in issues.
+Please file an [issue](https://github.com/DavidFreeborn/polygraphs-multibelief/issues) for this fork. The original project is maintained at [alexandroskoliousis/polygraphs](https://github.com/alexandroskoliousis/polygraphs).

@@ -481,3 +481,16 @@ class PolyGraphHyperParameters(HyperParameters):
         self.add(network=NetworkHyperParameters())
         # Metadata configuration
         self.add(simulation=SimulationHyperParameters())
+        self.add(multibelief=HyperParameters(
+            backend="bnlearn", rscript=None, timeout=60, max_states=65536,
+            case="baseline", model={}, agent_models={}, target="H", target_state=1,
+            prior_mode="uniform", priors={}, observation={},
+            decision="expected_payoff", safe_payoff=0.5, true_probability=None,
+            doubtful_epsilon=None, shared_evidence=[], evidence_schedule=[],
+            stop_on_consensus=True,
+            propaganda=HyperParameters(probability=0.0, node="S", likelihood=[1.0, 0.5]),
+        ))
+        self.add(bayesian_reliability=HyperParameters(
+            prior=0.5, source_priors={}, unreliable_probability=0.5,
+            unreliable_mode="uninformative", actual_reliability=1.0,
+        ))
