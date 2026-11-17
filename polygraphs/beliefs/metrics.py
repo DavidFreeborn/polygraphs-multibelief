@@ -19,8 +19,15 @@ def jensen_shannon(first, second):
         or not np.isclose(second.sum(), 1)
     ):
         raise ValueError("Expected probability distributions on the same support")
-    mixture = (first + second) / 2
-    return float((rel_entr(first, mixture).sum() + rel_entr(second, mixture).sum()) / 2)
+    # A positive subnormal probability can become zero when divided by two.
+    # Forming the mixture in log space avoids a spurious infinite divergence.
+    with np.errstate(divide="ignore"):
+        log_first, log_second = np.log(first), np.log(second)
+        log_mixture = np.logaddexp(log_first, log_second) - np.log(2.)
+    a, b = first > 0, second > 0
+    value = (np.sum(first[a] * (log_first[a] - log_mixture[a]))
+             + np.sum(second[b] * (log_second[b] - log_mixture[b]))) / 2
+    return max(0., float(value))
 
 
 def kullback_leibler(first, second):

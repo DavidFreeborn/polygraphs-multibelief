@@ -486,7 +486,7 @@ class PolyGraphHyperParameters(HyperParameters):
             case="baseline", model={}, agent_models={}, target="H", target_state=1,
             prior_mode="uniform", priors={}, observation={},
             decision="expected_payoff", safe_payoff=0.5, true_probability=None,
-            doubtful_epsilon=None, shared_evidence=[], evidence_schedule=[],
+            doubtful_epsilon=None, shared_evidence=[], evidence_schedule=[], source_mode="honest",
             stop_on_consensus=True,
             propaganda=HyperParameters(probability=0.0, node="S", likelihood=[1.0, 0.5]),
         ))

@@ -47,6 +47,11 @@ separately named shared-evidence examples provide cross-checks. The
 [small simulation study](reports/2026-11-17) includes figures, saved trajectories,
 KL/JS diagnostics and an audit of the divergence claims.
 
+The [controlled 60-agent study](reports/2026-11-17-network-study) compares four
+social networks, misinformation and disinformation, and Bayesian source trust.
+It includes a self-contained HTML report, a complete replication protocol and
+raw evidence records. Batched exact-inference operations support larger runs.
+
 ## Getting Started
 The upstream PolyGraphs release requires an appropriately configured version of PyTorch and DGL; see the [getting started guide](https://akoliousis.com/polygraphs/guide/introduction/getting-started). The PyPI release does not contain this fork's multibelief operations:
 

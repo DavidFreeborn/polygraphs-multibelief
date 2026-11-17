@@ -341,7 +341,29 @@ criterion of decreasing joint JS, although its belief trajectories and increasin
 cross-belief covariance exhibit faction structure. The implementation reports this
 distinction rather than assuming that every figure must meet every proposed measure.
 
-## Sources
+## Batched inference and unreliable observations
+
+`BatchedMultiBeliefOp` and `BatchedBayesianReliabilityOp` provide vectorized exact
+NumPy inference for larger experiments. They use the same graph attributes and
+configuration as the reference operations, but store posterior arrays rather than
+per-agent `BeliefState` objects. They require `multibelief.backend: numpy`.
+The batched finite-joint operation supports fresh network evidence and strictly
+interior observation probabilities; use `MultiBeliefOp` for shared evidence,
+external propaganda or the R backend.
+
+For either finite-joint operation, `multibelief.source_mode` can be `honest`
+(default), `uninformative`, or `opposite`. Set `unreliablenodes` explicitly to
+fix the number of affected agents. Their observed B success probabilities are
+respectively unchanged, 0.5, or `1 - true_probability`. These observations are
+used by the source itself and shared with neighbours, matching the native
+unreliable-observation convention. This differs from the reliability operations,
+which preserve genuine private observations and alter unreliable outgoing reports.
+
+The [60-agent study](https://github.com/DavidFreeborn/polygraphs-multibelief/tree/main/reports/2026-11-17-network-study) includes
+matched native Bala–Goyal tests, all three source treatments, four graph families,
+and exact source-reliability inference at two initial trust levels.
+
+## References
 
 - Freeborn, O'Connor and Weatherall, *Multiple Beliefs in Epistemic Networks*, draft,
   Models 1–2. Its trial count, propaganda strength and tentative findings remain

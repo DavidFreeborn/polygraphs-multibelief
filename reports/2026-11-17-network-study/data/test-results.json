@@ -1,0 +1,20 @@
+{
+  "windows": {
+    "command": "python -m pytest tests -q",
+    "passed": 119,
+    "failed": 0,
+    "seconds": 40.44,
+    "r_backend_enabled": true
+  },
+  "linux": {
+    "command": "python -m pytest tests -m \"not bnlearn\" -q",
+    "passed": 92,
+    "failed": 0,
+    "deselected": 27,
+    "seconds": 9.18,
+    "r_backend_enabled": false
+  },
+  "documentation_build": "passed",
+  "wheel_build_and_import": "passed",
+  "native_equivalence": "Matched actions and posteriors over 30 rounds on cycle, complete and random graphs, at 12 and 60 agents"
+}

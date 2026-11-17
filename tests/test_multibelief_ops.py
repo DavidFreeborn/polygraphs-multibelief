@@ -349,6 +349,10 @@ def test_each_standalone_example_runs_two_steps(filename, backend, tmp_path):
     params.simulation.results = str(tmp_path / "result")
     params.logging.enabled = False
     pg.random(params.seed)
+    if params.op.startswith("Batched") and backend == "bnlearn":
+        with pytest.raises(ValueError, match="require the numpy backend"):
+            pg.simulate(params)
+        return
     result = pg.simulate(params)
     assert result.frame.iloc[0]["steps"] == 2
     assert not result.frame.iloc[0]["undefined"]

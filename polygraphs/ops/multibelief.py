@@ -78,6 +78,14 @@ class MultiBeliefOp(NoOp):
         )
         self._configure_network()
         self._configure_observation()
+        self.source_mode = self.settings.source_mode
+        if self.source_mode not in ("honest", "uninformative", "opposite"):
+            raise ValueError("source_mode must be honest, uninformative or opposite")
+        if self.shared and self.source_mode != "honest":
+            raise ValueError("Unreliable source observations require network evidence")
+        for source in params.unreliablenodes:
+            if not isinstance(source, int) or not 0 <= source < graph.num_nodes():
+                raise ValueError("unreliablenodes contains an invalid source")
         self._configure_evidence()
         if (
             self.shared
@@ -302,7 +310,12 @@ class MultiBeliefOp(NoOp):
     def experiment(self, graph):
         count = graph.num_nodes()
         trials = np.where(self.active(graph).numpy(), self.params.trials, 0)
-        successes = np.random.binomial(trials, self.true_probability)
+        probability = np.full(count, self.true_probability)
+        if self.source_mode != "honest":
+            probability[self.params.unreliablenodes] = (
+                .5 if self.source_mode == "uninformative" else 1 - self.true_probability
+            )
+        successes = np.random.binomial(trials, probability)
         graph.ndata["payoffs"] = torch.tensor(
             np.stack((successes, trials), axis=1), dtype=torch.float64
         )
@@ -384,6 +397,7 @@ class MultiBeliefOp(NoOp):
             "agent_networks": [state.network.nodes for state in self.states],
             "backend": self.settings.backend,
             "backend_versions": self.backend.versions if self.backend else {},
+            "source_mode": self.source_mode,
             "observation_parents": list(self.observation_scope),
             "observation_probability": (
                 None if self.shared else self.observation_probability.tolist()

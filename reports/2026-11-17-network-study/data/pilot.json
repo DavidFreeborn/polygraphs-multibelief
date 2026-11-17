@@ -1,0 +1,42 @@
+[
+  {
+    "model": "baseline",
+    "network": "complete",
+    "treatment": "disinformation",
+    "trust_prior": null,
+    "id": "baseline-complete-disinformation",
+    "seconds": 0.08680200000526384
+  },
+  {
+    "model": "converging",
+    "network": "complete",
+    "treatment": "disinformation",
+    "trust_prior": null,
+    "id": "converging-complete-disinformation",
+    "seconds": 0.11766999994870275
+  },
+  {
+    "model": "polarising",
+    "network": "complete",
+    "treatment": "disinformation",
+    "trust_prior": null,
+    "id": "polarising-complete-disinformation",
+    "seconds": 0.12347019999288023
+  },
+  {
+    "model": "factionalising",
+    "network": "complete",
+    "treatment": "disinformation",
+    "trust_prior": null,
+    "id": "factionalising-complete-disinformation",
+    "seconds": 0.3951064999564551
+  },
+  {
+    "model": "trust",
+    "network": "complete",
+    "treatment": "disinformation",
+    "trust_prior": 0.5,
+    "id": "trust-complete-disinformation-0.5",
+    "seconds": 0.3186157000018284
+  }
+]

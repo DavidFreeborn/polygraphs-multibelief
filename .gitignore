@@ -158,3 +158,4 @@ dmypy.json
 .research/
 results/
 !reports/**/data/*.csv
+!reports/**/data/**/*.csv
