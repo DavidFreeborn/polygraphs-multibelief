@@ -42,7 +42,7 @@
   "tests/test_multibelief_ops.py": "9511cf28ae83b3eaa40573a567a1d23f8dde7b0431ef97d503e74ce552f8a33b",
   "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "reports/2026-11-17-network-study/check_r_backend.py": "32967f65e4f961135b26b047487d57f784b08fc7e061c3ef1940a0114ea05a1c",
-  "reports/2026-11-17-network-study/make_report.py": "9706728d723002343bfcab06adf44c114ae120919202eb429ff4fa3f290c3c70",
+  "reports/2026-11-17-network-study/make_report.py": "5f66e939cf90a61fca0a2e6ec6a91d225394ee1438e027ef60c7da406cbc79a0",
   "reports/2026-11-17-network-study/recompute_metrics.py": "ed846ebb63a25046483412c10263564555eb169e2a846772b3d86253875fcbad",
   "reports/2026-11-17-network-study/run_experiments.py": "a2d5af117307993597dd525733daf82e4ff2465827cbe050906c175602984fe2",
   "reports/2026-11-17-network-study/source_exposure.py": "53bd07cd65dae68ca1d861791fb30c329eadf2114cc3cda4e06ea51364d2916d",

@@ -27,7 +27,7 @@ pathspec==1.1.1
 pillow==12.3.0
 platformdirs==4.12.4
 pluggy==1.7.0
--e git+https://github.com/DavidFreeborn/polygraphs-multibelief.git@18af3efebc1a1f2474e14f23b20a69b553d1f929#egg=polygraphs
+-e git+https://github.com/DavidFreeborn/polygraphs-multibelief.git@5fa808d60f4a094b84d60f90bdb30f2164a5148c#egg=polygraphs
 psutil==7.2.2
 Pygments==2.21.0
 pyparsing==3.3.3

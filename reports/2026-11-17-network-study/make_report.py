@@ -83,6 +83,14 @@ def save(fig, filename, caption):
         FIG / f"{filename}.png", dpi=130, bbox_inches="tight", facecolor="white"
     )
     fig.savefig(FIG / f"{filename}.svg", bbox_inches="tight", facecolor="white")
+    svg = FIG / f"{filename}.svg"
+    svg.write_text(
+        "\n".join(
+            line.rstrip() for line in svg.read_text(encoding="utf-8").splitlines()
+        )
+        + "\n",
+        encoding="utf-8",
+    )
     footer = fig.text(
         0.02,
         -0.025,
