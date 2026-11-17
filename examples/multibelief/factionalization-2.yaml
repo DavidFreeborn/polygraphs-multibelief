@@ -4,28 +4,23 @@ seed: 1729
 epsilon: 0.05
 trials: 10
 network:
-  kind: complete
+  kind: cycle
   size: 40
   selfloop: true
 simulation:
-  steps: 20
+  steps: 80
   repeats: 1
   results: results/multibelief/auto
 logging:
   enabled: true
-  interval: 20
+  interval: 10
 snapshots:
   enabled: true
   interval: 1
 multibelief:
   backend: bnlearn
-  case: factionalization2
+  case: networked-factionalization2
   prior_mode: halton
   target: H2
   stop_on_consensus: false
-  shared_evidence:
-  - variables:
-    - H2
-    likelihood:
-    - 0.35
-    - 0.65
+  true_probability: 0.65

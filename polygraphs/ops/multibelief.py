@@ -63,9 +63,18 @@ class MultiBeliefOp(NoOp):
         self.neighbours = _incoming(graph)
         self.round = 0
         self.backend = None
-        self.shared = (
-            self.settings.case.startswith("factionalization")
-            or self.settings.case == "shared"
+        case = self.settings.case
+        self.factionalization_case = None
+        for prefix in (
+            "factionalization",
+            "shared-factionalization",
+            "networked-factionalization",
+        ):
+            if case in tuple(f"{prefix}{index}" for index in (1, 2, 3)):
+                self.factionalization_case = int(case[-1])
+                break
+        self.shared = case == "shared" or (
+            self.factionalization_case is not None and not case.startswith("networked-")
         )
         self._configure_network()
         self._configure_observation()
@@ -81,7 +90,7 @@ class MultiBeliefOp(NoOp):
                 )
         self.target = self.settings.target
         self.target_state = self.settings.target_state
-        if self.settings.case.startswith("factionalization") and self.target == "H":
+        if self.factionalization_case is not None and self.target == "H":
             self.target = "H2"
         if (
             self.target not in self.network.names
@@ -127,8 +136,8 @@ class MultiBeliefOp(NoOp):
         case = self.settings.case
         if case in ("baseline", "meta"):
             self.network = bandit(meta=case == "meta")
-        elif case in ("factionalization1", "factionalization2", "factionalization3"):
-            self.network = factionalization(int(case[-1]))
+        elif self.factionalization_case is not None:
+            self.network = factionalization(self.factionalization_case)
         elif case in ("custom", "shared") and "nodes" in self.settings.model:
             self.network = BayesianNetwork(self.settings.model["nodes"])
         else:
@@ -138,7 +147,9 @@ class MultiBeliefOp(NoOp):
         self.observation_scope, self.observation_probability = (), None
         if self.shared:
             return
-        if self.settings.case in ("baseline", "meta"):
+        if self.factionalization_case is not None:
+            scope, probability = ("H2",), np.array([0.35, 0.65])
+        elif self.settings.case in ("baseline", "meta"):
             doubtful = None
             if self.settings.case == "meta":
                 doubtful = self.settings.doubtful_epsilon
@@ -161,8 +172,13 @@ class MultiBeliefOp(NoOp):
             )
         self.observation_scope, self.observation_probability = scope, probability
         truth = self.settings.true_probability
+        default_truth = (
+            0.65
+            if self.factionalization_case is not None
+            else 0.5 + self.params.epsilon
+        )
         self.true_probability = _probability(
-            0.5 + self.params.epsilon if truth is None else truth, "true_probability"
+            default_truth if truth is None else truth, "true_probability"
         )
         _probability(self.settings.safe_payoff, "safe_payoff")
         if self.settings.decision not in ("expected_payoff", "hypothesis"):
@@ -191,7 +207,11 @@ class MultiBeliefOp(NoOp):
             raise ValueError(
                 "shared_evidence and evidence_schedule require a shared-evidence case"
             )
-        if not specifications and self.settings.case.startswith("factionalization"):
+        if (
+            not specifications
+            and self.factionalization_case is not None
+            and self.shared
+        ):
             specifications = [{"variables": ["H2"], "likelihood": [0.35, 0.65]}]
         self.shared_evidence = self._parse_evidence(specifications)
         self.evidence_schedule = [

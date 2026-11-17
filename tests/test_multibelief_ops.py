@@ -380,7 +380,7 @@ def test_twenty_factionalization_updates_match_closed_form(case):
             str(
                 Path(__file__).parents[1]
                 / "examples/multibelief"
-                / f"factionalization-{case}.yaml"
+                / f"shared-evidence-factionalization-{case}.yaml"
             )
         ]
     )
@@ -398,3 +398,26 @@ def test_twenty_factionalization_updates_match_closed_form(case):
         expected = prior * np.array([0.35, 0.65]).reshape(shape) ** 20
         expected /= expected.sum()
         np.testing.assert_allclose(state.joint, expected, atol=1e-13)
+
+
+@pytest.mark.parametrize("case", [1, 2, 3])
+def test_networked_factionalization_uses_only_own_and_incoming_evidence(case):
+    params = parameters(f"networked-factionalization{case}")
+    params.multibelief.prior_mode = "halton"
+    graph = dgl.graph(([0], [1]), num_nodes=3)
+    model = MultiBeliefOp(graph, params)
+    before = [state.joint.copy() for state in model.states]
+    assert not model.shared
+    assert model.true_probability == 0.65
+    fixed_payoffs(model, [[7, 10], [0, 0], [0, 0]])
+    model(graph)
+    for index in (0, 1):
+        shape = [1] * before[index].ndim
+        shape[model.network.names.index("H2")] = 2
+        weights = (np.array([0.35, 0.65]) ** 7 * np.array([0.65, 0.35]) ** 3).reshape(
+            shape
+        )
+        expected = before[index] * weights
+        expected /= expected.sum()
+        np.testing.assert_allclose(model.states[index].joint, expected, atol=1e-13)
+    np.testing.assert_array_equal(model.states[2].joint, before[2])

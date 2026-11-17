@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="964.8pt" height="525.6pt" viewBox="0 0 964.8 525.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-17T18:06:05.266178</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 525.6
+L 964.8 525.6
+L 964.8 0
+L 0 0
+z
+" style="fill: #faf8f3"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 67.536 425.736
+L 379.5081 425.736
+L 379.5081 131.4
+L 67.536 131.4
+z
+" style="fill: #faf8f3"/>
+   </g>
+   <g clip-path="url(#p2c0742db7f)">
+    <image xlink:href="data:image/png;base64,
+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" id="image383696bac7" transform="scale(1 -1) translate(0 -294.48)" x="67.536" y="-131.256" width="312.48" height="294.48"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1"/>
+     <g id="text_1">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #233746" x="69.461754" y="440.897875" transform="rotate(-0 69.461754 440.897875)">0</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2"/>
+     <g id="text_2">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #233746" x="146.491902" y="440.897875" transform="rotate(-0 146.491902 440.897875)">20</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3"/>
+     <g id="text_3">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #233746" x="223.52205" y="440.897875" transform="rotate(-0 223.52205 440.897875)">40</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4"/>
+     <g id="text_4">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #233746" x="300.552198" y="440.897875" transform="rotate(-0 300.552198 440.897875)">60</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_5"/>
+     <g id="text_5">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #233746" x="377.582346" y="440.897875" transform="rotate(-0 377.582346 440.897875)">80</text>
+     </g>
+    </g>
+    <g id="text_6">
+     <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #233746" x="223.52205" y="455.1935" transform="rotate(-0 223.52205 455.1935)">Round</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_6"/>
+     <g id="text_7">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #233746" x="60.536" y="417.552938" transform="rotate(-0 60.536 417.552938)">5</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_7"/>
+     <g id="text_8">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #233746" x="60.536" y="393.024938" transform="rotate(-0 60.536 393.024938)">3</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_8"/>
+     <g id="text_9">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #233746" x="60.536" y="368.496938" transform="rotate(-0 60.536 368.496938)">8</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_9"/>
+     <g id="text_10">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #233746" x="60.536" y="343.968938" transform="rotate(-0 60.536 343.968938)">6</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_10"/>
+     <g id="text_11">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #233746" x="60.536" y="319.440938" transform="rotate(-0 60.536 319.440938)">2</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_11"/>
+     <g id="text_12">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #233746" x="60.536" y="294.912937" transform="rotate(-0 60.536 294.912937)">0</text>
+     </g>
+    </g>
+    <g id="ytick_7">
+     <g id="line2d_12"/>
+     <g id="text_13">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #233746" x="60.536" y="270.384937" transform="rotate(-0 60.536 270.384937)">1</text>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_13"/>
+     <g id="text_14">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #233746" x="60.536" y="245.856938" transform="rotate(-0 60.536 245.856938)">7</text>
+     </g>
+    </g>
+    <g id="ytick_9">
+     <g id="line2d_14"/>
+     <g id="text_15">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #233746" x="60.536" y="221.328937" transform="rotate(-0 60.536 221.328937)">10</text>
+     </g>
+    </g>
+    <g id="ytick_10">
+     <g id="line2d_15"/>
+     <g id="text_16">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #233746" x="60.536" y="196.800937" transform="rotate(-0 60.536 196.800937)">4</text>
+     </g>
+    </g>
+    <g id="ytick_11">
+     <g id="line2d_16"/>
+     <g id="text_17">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #233746" x="60.536" y="172.272938" transform="rotate(-0 60.536 172.272938)">11</text>
+     </g>
+    </g>
+    <g id="ytick_12">
+     <g id="line2d_17"/>
+     <g id="text_18">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #233746" x="60.536" y="147.744937" transform="rotate(-0 60.536 147.744937)">9</text>
+     </g>
+    </g>
+    <g id="text_19">
+     <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #233746" x="42.231625" y="278.568" transform="rotate(-90 42.231625 278.568)">Agent, sorted by final belief</text>
+    </g>
+   </g>
+   <g id="text_20">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #233746" x="223.52205" y="125.4" transform="rotate(-0 223.52205 125.4)">Hypothesis belief through time</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_3">
+    <path d="M 552.2961 425.736
+L 846.6321 425.736
+L 846.6321 131.4
+L 552.2961 131.4
+z
+" style="fill: #faf8f3"/>
+   </g>
+   <g clip-path="url(#pea1eac544c)">
+    <image xlink:href="data:image/png;base64,
+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" id="image0fbae69755" transform="scale(1 -1) translate(0 -294.48)" x="552.2961" y="-131.256" width="294.48" height="294.48"/>
+   </g>
+   <g id="matplotlib.axis_3">
+    <g id="xtick_6">
+     <g id="line2d_18"/>
+     <g id="text_21">
+      <text style="font-size: 10px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #233746" x="564.5601" y="439.537563" transform="rotate(-0 564.5601 439.537563)">1</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_19"/>
+     <g id="text_22">
+      <text style="font-size: 10px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #233746" x="589.0881" y="439.537563" transform="rotate(-0 589.0881 439.537563)">2</text>
+     </g>
+    </g>
+    <g id="xtick_8">
+     <g id="line2d_20"/>
+     <g id="text_23">
+      <text style="font-size: 10px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #233746" x="613.6161" y="439.537563" transform="rotate(-0 613.6161 439.537563)">3</text>
+     </g>
+    </g>
+    <g id="xtick_9">
+     <g id="line2d_21"/>
+     <g id="text_24">
+      <text style="font-size: 10px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #233746" x="638.1441" y="439.537563" transform="rotate(-0 638.1441 439.537563)">5</text>
+     </g>
+    </g>
+    <g id="xtick_10">
+     <g id="line2d_22"/>
+     <g id="text_25">
+      <text style="font-size: 10px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #233746" x="662.6721" y="439.537563" transform="rotate(-0 662.6721 439.537563)">6</text>
+     </g>
+    </g>
+    <g id="xtick_11">
+     <g id="line2d_23"/>
+     <g id="text_26">
+      <text style="font-size: 10px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #233746" x="687.2001" y="439.537563" transform="rotate(-0 687.2001 439.537563)">7</text>
+     </g>
+    </g>
+    <g id="xtick_12">
+     <g id="line2d_24"/>
+     <g id="text_27">
+      <text style="font-size: 10px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #233746" x="711.7281" y="439.537563" transform="rotate(-0 711.7281 439.537563)">9</text>
+     </g>
+    </g>
+    <g id="xtick_13">
+     <g id="line2d_25"/>
+     <g id="text_28">
+      <text style="font-size: 10px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #233746" x="736.2561" y="439.537563" transform="rotate(-0 736.2561 439.537563)">10</text>
+     </g>
+    </g>
+    <g id="xtick_14">
+     <g id="line2d_26"/>
+     <g id="text_29">
+      <text style="font-size: 10px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #233746" x="760.7841" y="439.537563" transform="rotate(-0 760.7841 439.537563)">11</text>
+     </g>
+    </g>
+    <g id="xtick_15">
+     <g id="line2d_27"/>
+     <g id="text_30">
+      <text style="font-size: 10px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #233746" x="785.3121" y="439.537563" transform="rotate(-0 785.3121 439.537563)">0†</text>
+     </g>
+    </g>
+    <g id="xtick_16">
+     <g id="line2d_28"/>
+     <g id="text_31">
+      <text style="font-size: 10px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #233746" x="809.8401" y="439.537563" transform="rotate(-0 809.8401 439.537563)">4†</text>
+     </g>
+    </g>
+    <g id="xtick_17">
+     <g id="line2d_29"/>
+     <g id="text_32">
+      <text style="font-size: 10px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #233746" x="834.3681" y="439.537563" transform="rotate(-0 834.3681 439.537563)">8†</text>
+     </g>
+    </g>
+    <g id="text_33">
+     <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #233746" x="699.4641" y="453.629438" transform="rotate(-0 699.4641 453.629438)">Source agent († = actually unreliable)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_4">
+    <g id="ytick_13">
+     <g id="line2d_30"/>
+     <g id="text_34">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #233746" x="545.2961" y="417.552938" transform="rotate(-0 545.2961 417.552938)">5</text>
+     </g>
+    </g>
+    <g id="ytick_14">
+     <g id="line2d_31"/>
+     <g id="text_35">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #233746" x="545.2961" y="393.024938" transform="rotate(-0 545.2961 393.024938)">3</text>
+     </g>
+    </g>
+    <g id="ytick_15">
+     <g id="line2d_32"/>
+     <g id="text_36">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #233746" x="545.2961" y="368.496938" transform="rotate(-0 545.2961 368.496938)">8</text>
+     </g>
+    </g>
+    <g id="ytick_16">
+     <g id="line2d_33"/>
+     <g id="text_37">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #233746" x="545.2961" y="343.968938" transform="rotate(-0 545.2961 343.968938)">6</text>
+     </g>
+    </g>
+    <g id="ytick_17">
+     <g id="line2d_34"/>
+     <g id="text_38">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #233746" x="545.2961" y="319.440938" transform="rotate(-0 545.2961 319.440938)">2</text>
+     </g>
+    </g>
+    <g id="ytick_18">
+     <g id="line2d_35"/>
+     <g id="text_39">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #233746" x="545.2961" y="294.912937" transform="rotate(-0 545.2961 294.912937)">0</text>
+     </g>
+    </g>
+    <g id="ytick_19">
+     <g id="line2d_36"/>
+     <g id="text_40">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #233746" x="545.2961" y="270.384937" transform="rotate(-0 545.2961 270.384937)">1</text>
+     </g>
+    </g>
+    <g id="ytick_20">
+     <g id="line2d_37"/>
+     <g id="text_41">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #233746" x="545.2961" y="245.856938" transform="rotate(-0 545.2961 245.856938)">7</text>
+     </g>
+    </g>
+    <g id="ytick_21">
+     <g id="line2d_38"/>
+     <g id="text_42">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #233746" x="545.2961" y="221.328937" transform="rotate(-0 545.2961 221.328937)">10</text>
+     </g>
+    </g>
+    <g id="ytick_22">
+     <g id="line2d_39"/>
+     <g id="text_43">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #233746" x="545.2961" y="196.800937" transform="rotate(-0 545.2961 196.800937)">4</text>
+     </g>
+    </g>
+    <g id="ytick_23">
+     <g id="line2d_40"/>
+     <g id="text_44">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #233746" x="545.2961" y="172.272938" transform="rotate(-0 545.2961 172.272938)">11</text>
+     </g>
+    </g>
+    <g id="ytick_24">
+     <g id="line2d_41"/>
+     <g id="text_45">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #233746" x="545.2961" y="147.744937" transform="rotate(-0 545.2961 147.744937)">9</text>
+     </g>
+    </g>
+    <g id="text_46">
+     <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #233746" x="526.991725" y="278.568" transform="rotate(-90 526.991725 278.568)">Recipient agent</text>
+    </g>
+   </g>
+   <g id="line2d_42">
+    <path d="M 773.0481 425.736
+L 773.0481 131.4
+" clip-path="url(#pea1eac544c)" style="fill: none; stroke: #c15d44; stroke-width: 1.3; stroke-linecap: square"/>
+   </g>
+   <g id="text_47">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #233746" x="699.4641" y="125.4" transform="rotate(-0 699.4641 125.4)">Who trusts whom at the end?</text>
+   </g>
+  </g>
+  <g id="axes_3">
+   <g id="patch_4">
+    <path d="M 387.8496 412.032
+L 401.196 412.032
+L 401.196 145.104
+L 387.8496 145.104
+z
+" style="fill: #faf8f3"/>
+   </g>
+   <g id="matplotlib.axis_5"/>
+   <g id="matplotlib.axis_6">
+    <g id="ytick_25">
+     <g id="line2d_43"/>
+     <g id="text_48">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #233746" x="404.696" y="416.112938" transform="rotate(-0 404.696 416.112938)">0.0</text>
+     </g>
+    </g>
+    <g id="ytick_26">
+     <g id="line2d_44"/>
+     <g id="text_49">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #233746" x="404.696" y="362.727338" transform="rotate(-0 404.696 362.727338)">0.2</text>
+     </g>
+    </g>
+    <g id="ytick_27">
+     <g id="line2d_45"/>
+     <g id="text_50">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #233746" x="404.696" y="309.341738" transform="rotate(-0 404.696 309.341738)">0.4</text>
+     </g>
+    </g>
+    <g id="ytick_28">
+     <g id="line2d_46"/>
+     <g id="text_51">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #233746" x="404.696" y="255.956137" transform="rotate(-0 404.696 255.956137)">0.6</text>
+     </g>
+    </g>
+    <g id="ytick_29">
+     <g id="line2d_47"/>
+     <g id="text_52">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #233746" x="404.696" y="202.570537" transform="rotate(-0 404.696 202.570537)">0.8</text>
+     </g>
+    </g>
+    <g id="ytick_30">
+     <g id="line2d_48"/>
+     <g id="text_53">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #233746" x="404.696" y="149.184937" transform="rotate(-0 404.696 149.184937)">1.0</text>
+     </g>
+    </g>
+    <g id="text_54">
+     <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #233746" x="432.09225" y="278.568" transform="rotate(-90 432.09225 278.568)">P(H = true)</text>
+    </g>
+   </g>
+   <image xlink:href="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAABIAAAFyCAYAAAD4TYq5AAAB50lEQVR4nO2asXHFMAxDERz3XzF1mowgZISfAgUEkQO8MwmYlGh//f58C4YYCwUATRwMTI80MpGIuBoprdjMS03F8gu1qWFVu65ns1f+MY6jYtXyOqQsIPbWiL3FZq9qs7P/Sh/JA2Kzs+F5pum91NDEQV5qg7QpMsaraK/8ClONLtBUq4bS+xpdoNkd28cYoLdnywOiB4PAGhFps3/iUmOis2UBsbdG7B3Z9GCws//t7fG4Zv/kpaa0d40u0DQf2OUB0YNBpLOxO7Z3nT3N9zV4gqid/VMsP2qb/+zIvrJno/ellQsET7BXfpo42B3b59gd26XORm1q2CXLu81/fPLLwkFxsWniYH+JuVM1hb1rE/ehblTbj8Ym/0FtasozpFwg1Dr7+H6uUK386k0Nqm21QmtqQrGzZQKht9UKvaqpttVqnX1jP4IJhN7UpN5TbW2N1OxsuUCwBHudTRMH1ZsIuEDa29GHWGc/7WxaKDAuEGZvR0+fj86ejx7+CDWJzpYHdCwYJKamZmerttUqLjW4QFr5b9xEoNfZqm21CkttEp2t2u+0CJOfHgy6pwhMoJP29tODwW4i/hHr7CvPRwrsRzKBVFujg9rUVDxF0JuabKdaeUBCbY2UJz9qj8end4rIBjKl9gc7pbOkiOShEgAAAABJRU5ErkJggg==" id="image5f48fac266" transform="scale(1 -1) translate(0 -266.4)" x="388.08" y="-145.44" width="12.96" height="266.4"/>
+   <g id="LineCollection_1"/>
+   <g id="patch_5">
+    <path d="M 387.8496 412.032
+L 394.5228 412.032
+L 401.196 412.032
+L 401.196 145.104
+L 394.5228 145.104
+L 387.8496 145.104
+L 387.8496 412.032
+z
+" style="fill: none; stroke: #dedfd9; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+  </g>
+  <g id="axes_4">
+   <g id="patch_6">
+    <path d="M 854.9736 412.032
+L 868.32 412.032
+L 868.32 145.104
+L 854.9736 145.104
+z
+" style="fill: #faf8f3"/>
+   </g>
+   <g id="matplotlib.axis_7"/>
+   <g id="matplotlib.axis_8">
+    <g id="ytick_31">
+     <g id="line2d_49"/>
+     <g id="text_55">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #233746" x="871.82" y="416.112938" transform="rotate(-0 871.82 416.112938)">0.0</text>
+     </g>
+    </g>
+    <g id="ytick_32">
+     <g id="line2d_50"/>
+     <g id="text_56">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #233746" x="871.82" y="362.727338" transform="rotate(-0 871.82 362.727338)">0.2</text>
+     </g>
+    </g>
+    <g id="ytick_33">
+     <g id="line2d_51"/>
+     <g id="text_57">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #233746" x="871.82" y="309.341738" transform="rotate(-0 871.82 309.341738)">0.4</text>
+     </g>
+    </g>
+    <g id="ytick_34">
+     <g id="line2d_52"/>
+     <g id="text_58">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #233746" x="871.82" y="255.956137" transform="rotate(-0 871.82 255.956137)">0.6</text>
+     </g>
+    </g>
+    <g id="ytick_35">
+     <g id="line2d_53"/>
+     <g id="text_59">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #233746" x="871.82" y="202.570537" transform="rotate(-0 871.82 202.570537)">0.8</text>
+     </g>
+    </g>
+    <g id="ytick_36">
+     <g id="line2d_54"/>
+     <g id="text_60">
+      <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #233746" x="871.82" y="149.184937" transform="rotate(-0 871.82 149.184937)">1.0</text>
+     </g>
+    </g>
+    <g id="text_61">
+     <text style="font-size: 12px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #233746" x="899.21625" y="278.568" transform="rotate(-90 899.21625 278.568)">P(source is reliable)</text>
+    </g>
+   </g>
+   <image xlink:href="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAABMAAAFyCAYAAAAXj+GHAAAB/ElEQVR4nO2aMXIFMQhDFY3uf8XUaXIEK2fwHxXEgn7fLAYBZvfr9+fbCJliJAAMsiAEX00O0oixZ+apAeBcN12SGkaFm9hoPtMD2JEaCre6kmjOrbSOwdhxZuwIADuiqZ01nsoz52BsUQBy76aOixiDLMx1U5janRS+VnekhodGk0mYaqKJgvsmkzDtzvHaBHT0AOdgzKEw+MyIqbOGxrrJyQpwDMaOM2PHeMAcCjtrfGDq2LorOWtorpueqk0mYWq5VDgHYw6F0QrA7hwvjehYRWBq1VDHzlFjZw2VpAYqGop2PHiqB6BD6E7CkDN2pAaDLOzO8d60O8e3FIAKN7GLpUvj7QP/s6EomxqOsVASAAZZ2N+f3oqmh2pTYz+WyhX1TNHUOKhw03OT1kkYKhRwsj/MuCI13OEmXFG2jQY3jRIFOAhDR9k2OqLpirLtVcBL9QxBGDrctDum7Yozc4sCnIQhZuxQAIMs1GxckIR5b3WXplXAtREVCmCMhPCSRHureyk1nEyNs/PZrRFo+OyhyQpwDnZiKEx20y0KcEXZ9lg3kYR5U+OljQs6FOCKsu2hbmqyAlzxHR1DU4M5FHq6E4KwM7VqMIfCblw+MK0CXprPPLieOQhzxZkdVLjpku6EDjcdnbadgxkVZ+a5qYGK0f10dCdHYUE3/wDcmrOk4prOcAAAAABJRU5ErkJggg==" id="imagec90569f9a1" transform="scale(1 -1) translate(0 -266.4)" x="854.64" y="-145.44" width="13.68" height="266.4"/>
+   <g id="LineCollection_2"/>
+   <g id="patch_7">
+    <path d="M 854.9736 412.032
+L 861.6468 412.032
+L 868.32 412.032
+L 868.32 145.104
+L 861.6468 145.104
+L 854.9736 145.104
+L 854.9736 412.032
+z
+" style="fill: none; stroke: #dedfd9; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+  </g>
+  <g id="text_62">
+   <text style="font-size: 25px; font-family: 'Georgia'; text-anchor: start; fill: #233746" x="53.064" y="38.345638" transform="rotate(-0 53.064 38.345638)">What the symmetric trust model cannot learn</text>
+  </g>
+  <g id="text_63">
+   <text style="font-size: 12.5px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5b6a72" x="53.064" y="59.643356" transform="rotate(-0 53.064 59.643356)">First pre-specified seed (1729) · opposite-reporting model · no selection for visual appeal</text>
+  </g>
+  <g id="text_64">
+   <text style="font-size: 10.5px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; fill: #647279" transform="translate(53.064 496.063172)">Across all 12 runs, all 77 agents initially at H ≤ 0.5 remain at their starting H belief in this symmetric model.</text>
+   <text style="font-size: 10.5px; font-family: 'Calibri', 'DejaVu Sans', sans-serif; fill: #647279" transform="translate(53.064 507.204)">Saved histories verify the private-evidence-only posterior to 4.4 × 10⁻¹⁵ for the 108 actually reliable agents.</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p2c0742db7f">
+   <rect x="67.536" y="131.4" width="311.9721" height="294.336"/>
+  </clipPath>
+  <clipPath id="pea1eac544c">
+   <rect x="552.2961" y="131.4" width="294.336" height="294.336"/>
+  </clipPath>
+ </defs>
+</svg>

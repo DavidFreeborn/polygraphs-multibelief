@@ -1,0 +1,76 @@
+{
+  "elapsed_seconds": 86.73176009999588,
+  "numpy": "1.26.4",
+  "torch": "2.2.2+cpu",
+  "dgl": "1.1.2",
+  "approved_workload": {
+    "destination": "Local Windows CPU in the existing Polygraphs_Bnlearn project",
+    "backend": "numpy exact inference; targeted comparisons with installed R bnlearn/gRain",
+    "network_agents": 12,
+    "rounds": 80,
+    "trials_per_active_agent_per_round": 10,
+    "epsilon": 0.05,
+    "seeds": [
+      1729,
+      1730,
+      1731,
+      1732,
+      1733,
+      1734,
+      1735,
+      1736,
+      1737,
+      1738,
+      1739,
+      1740
+    ],
+    "scenarios": [
+      "baseline-cycle",
+      "baseline-complete",
+      "meta-cycle",
+      "meta-complete",
+      "meta-decision-control-cycle",
+      "meta-propaganda-cycle",
+      "hypothesis-propaganda-cycle",
+      "reliability-complete-all-reliable",
+      "reliability-complete-mixed-uninformative",
+      "reliability-complete-mixed-opposite"
+    ],
+    "mixed_sources": [
+      0,
+      4,
+      8
+    ],
+    "propaganda": {
+      "probability": 0.1,
+      "likelihood": [
+        1.0,
+        0.5
+      ]
+    },
+    "factionalization": {
+      "cases": [
+        1,
+        2,
+        3
+      ],
+      "agents": [
+        15,
+        40,
+        60
+      ],
+      "updates": 20,
+      "likelihood": [
+        0.35,
+        0.65
+      ],
+      "case3_sensitivity": "100 seeded uniform populations and 100 scrambled Halton populations; initial and final exact posteriors",
+      "checks": "hard conditioning both outcomes, fixed positive and negative signals, exhaustive 20-observation count outcomes, KL and weighted-JS chain identities, prior ordering and population size"
+    },
+    "resources": "One local process, CPU only, approximately 1 GB RAM; no cloud, HPC or scheduler",
+    "cost": "No service charges",
+    "estimated_compute_minutes": "2-5; stop if cumulative simulation compute reaches 10 minutes",
+    "outputs": "Reproducible scripts, raw arrays, CSV tables, PNG/SVG figures and an HTML report",
+    "scope": "Exploratory illustrations and numerical checks, not a parameter sweep or a population-level scientific claim"
+  }
+}

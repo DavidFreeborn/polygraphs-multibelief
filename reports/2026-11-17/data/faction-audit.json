@@ -1,0 +1,32 @@
+{
+  "hard_H2": {
+    "expected_equal_weight_js": 0.2513667389410892,
+    "expected_equal_weight_delta": -0.0016252453294462834,
+    "expected_weighted_js": 0.2502667301150618,
+    "predictive_js": 0.0027252541554736768,
+    "max_weighted_js_identity_error": 2.220446049250313e-16,
+    "max_directed_kl_identity_error": 1.7763568394002505e-15,
+    "pairs_expected_equal_js_increase": 383,
+    "pairs": 1770
+  },
+  "20_signals": {
+    "expected_equal_weight_js": 0.25177034393328457,
+    "expected_equal_weight_delta": -0.0012216403372509075,
+    "expected_weighted_js": 0.2509408800947731,
+    "predictive_js": 0.0020511041757621255,
+    "max_weighted_js_identity_error": 7.771561172376096e-16,
+    "max_directed_kl_identity_error": 5.329070518200751e-15,
+    "pairs_expected_equal_js_increase": 383,
+    "pairs": 1770
+  },
+  "bnlearn_versions": {
+    "R": "4.6.2",
+    "bnlearn": "5.2.1",
+    "gRain": "1.4.6"
+  },
+  "max_scipy_js_error": 2.220446049250313e-16,
+  "pair_fraction_increasing": 0.5384180790960452,
+  "initial_js": 0.2529919842705355,
+  "final_js": 0.2539185902442326,
+  "relative_increase_percent": 0.3662590245176345
+}

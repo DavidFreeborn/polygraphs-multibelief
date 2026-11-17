@@ -23,6 +23,22 @@ def jensen_shannon(first, second):
     return float((rel_entr(first, mixture).sum() + rel_entr(second, mixture).sum()) / 2)
 
 
+def kullback_leibler(first, second):
+    """Directed KL(P || Q), in nats; infinite for unmatched positive support."""
+    first, second = np.asarray(first, dtype=float), np.asarray(second, dtype=float)
+    if (
+        first.shape != second.shape
+        or not np.isfinite(first).all()
+        or not np.isfinite(second).all()
+        or np.any(first < 0)
+        or np.any(second < 0)
+        or not np.isclose(first.sum(), 1)
+        or not np.isclose(second.sum(), 1)
+    ):
+        raise ValueError("Expected probability distributions on the same support")
+    return float(rel_entr(first, second).sum())
+
+
 def population_diagnostics(states, variables=None):
     """Mean pairwise JS for joints and products of marginals, plus covariance."""
     if len(states) < 2:
@@ -73,6 +89,30 @@ def distribution_diagnostics(joints):
         ),
         "marginal_product_js": float(
             np.mean([jensen_shannon(products[i], products[j]) for i, j in pairs])
+        ),
+        "joint_kl": float(
+            np.mean(
+                [
+                    (
+                        kullback_leibler(joints[i], joints[j])
+                        + kullback_leibler(joints[j], joints[i])
+                    )
+                    / 2
+                    for i, j in pairs
+                ]
+            )
+        ),
+        "marginal_product_kl": float(
+            np.mean(
+                [
+                    (
+                        kullback_leibler(products[i], products[j])
+                        + kullback_leibler(products[j], products[i])
+                    )
+                    / 2
+                    for i, j in pairs
+                ]
+            )
         ),
         "mean_variance": float(np.var(beliefs, axis=0).mean()),
         "mean_absolute_covariance": (

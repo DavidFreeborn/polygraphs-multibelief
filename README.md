@@ -42,6 +42,11 @@ configuration, evidence semantics and validation. The [examples](examples/multib
 include the two multibelief models, propaganda and decision controls, the three
 factionalization cases, learned source reliability, and a custom belief network.
 
+The factionalization examples share fresh observations with social neighbours;
+separately named shared-evidence examples provide cross-checks. The
+[small simulation study](reports/2026-11-17) includes figures, saved trajectories,
+KL/JS diagnostics and an audit of the divergence claims.
+
 ## Getting Started
 The upstream PolyGraphs release requires an appropriately configured version of PyTorch and DGL; see the [getting started guide](https://akoliousis.com/polygraphs/guide/introduction/getting-started). The PyPI release does not contain this fork's multibelief operations:
 

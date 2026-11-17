@@ -132,8 +132,9 @@ parameters. The draft's tentative results are not assumed by the implementation.
 
 ## Factionalization
 
-`case: factionalization1`, `factionalization2` and `factionalization3` implement
-Freeborn (2024), section 4:
+`case: networked-factionalization1`, `networked-factionalization2` and
+`networked-factionalization3` put the belief structures from Freeborn (2024),
+section 4, inside agents that share fresh observations with their neighbours:
 
 | Case | Network | Figure population |
 |---|---|---|
@@ -145,7 +146,19 @@ Case 1 uses `P(H2=1 | H1) = [0.1, 0.9]`. Each two-parent CPT in cases 2 and 3
 uses `[[0.9, 0.1], [0.1, 0.9]]`, following the diagrams and tables. Figure 4's
 mislabelled table header is interpreted using its diagram and section 4.2.
 
-Every agent receives the same likelihood evidence on the *persistent* node `H2`,
+The main `factionalization-1.yaml` to `factionalization-3.yaml` examples use social
+cycles. Each active agent conducts Bernoulli trials with likelihoods
+`P(D=1 | H2=0)=0.35` and `P(D=1 | H2=1)=0.65`; the true success rate is 0.65.
+It tests B when its joint-derived expected success rate exceeds 0.5, otherwise
+chooses A. It updates on its own and incoming neighbours' fresh counts once per
+round. Complete graphs can be selected with the normal `network.kind` override.
+Different local evidence histories can now drive different posterior trajectories.
+
+The separate `shared-evidence-factionalization-*.yaml` examples are cross-checks
+of the paper's common-evidence setting. They use `case: shared-factionalization1`
+through `shared-factionalization3`. The original names `factionalization1` through
+`factionalization3` remain aliases for these shared-evidence controls.
+In these controls every agent receives the same likelihood evidence on the *persistent* node `H2`,
 exactly once per round, independently of social graph degree. The supplied examples
 use 20 updates with likelihoods `[0.35, 0.65]` for `[H2=0, H2=1]`. The captions call
 this a "likelihood ratio of 0.65"; the accompanying earlier code supplies the two
@@ -156,13 +169,23 @@ the published models, not a claim to reproduce an undocumented random seed.
 
 `population_diagnostics()` reports the mean pairwise Jensen-Shannon divergence
 between joint distributions and between their products of marginals, in nats.
+It also reports `joint_kl` and `marginal_product_kl`: the mean directed KL over
+all ordered pairs of distinct agents, equivalently the mean of
+`(KL(P||Q)+KL(Q||P))/2` over unordered pairs. KL is unbounded and is infinite when
+positive probability under one distribution has zero probability under the other.
+No arbitrary epsilon is added to make KL finite. For highly concentrated posteriors,
+use the retained log probabilities to distinguish real support differences from
+floating-point underflow.
 It also reports population variance and mean absolute off-diagonal covariance.
 Jensen-Shannon divergence is bounded by `log(2)`, regardless of the number of
 variables. The covariance is `abs(mean((x-mean(x))*(y-mean(y))))`.
 These use the standard mathematical definitions; apparent sign and typesetting
 errors in the paper are not reproduced. No rule forces joint divergence to decline
-after every realized observation: the paper's qualification about expected versus
-realized changes matters, especially outside its shared-evidence assumptions.
+after every realized observation. Directed KL obeys an expectation identity under
+the first agent's predictive distribution. The corresponding JS chain identity
+uses posterior mixture weights, not an equal-weight JS of posteriors. Equal-weight
+JS can increase even in expectation under the shared-CPT model. Thus the KL
+expectation result does not by itself establish the same claim for ordinary JS.
 
 ## Bayesian source reliability
 

@@ -222,6 +222,14 @@ def test_js_uses_standard_nonnegative_definition_and_bound():
     ]
     result = population_diagnostics(states)
     assert 0 <= result["joint_js"] <= np.log(2)
+    from scipy.stats import entropy
+    from polygraphs.beliefs.metrics import kullback_leibler
+
+    first, second = states[0].joint.ravel(), states[1].joint.ravel()
+    assert kullback_leibler(first, second) == pytest.approx(entropy(first, second))
+    expected = (entropy(first, second) + entropy(second, first)) / 2
+    assert result["joint_kl"] == pytest.approx(expected)
+    assert np.isinf(kullback_leibler([1, 0], [0, 1]))
     assert 0 <= result["marginal_product_js"] <= np.log(2)
 
 

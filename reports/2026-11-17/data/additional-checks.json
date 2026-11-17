@@ -1,0 +1,41 @@
+{
+  "equal_weight_js_counterexample": {
+    "agents_zero_based": [
+      34,
+      47
+    ],
+    "root_names": [
+      "H1",
+      "H4",
+      "H5"
+    ],
+    "root_priors": [
+      [
+        0.765625,
+        0.9012345679012346,
+        0.088
+      ],
+      [
+        0.046875,
+        0.19753086419753085,
+        0.7680000000000001
+      ]
+    ],
+    "prior_js": 0.5264623595014621,
+    "posterior_js_H2_false": 0.5387713506484357,
+    "posterior_js_H2_true": 0.5197095243001278,
+    "predictive_H2_true": [
+      0.38759012345679,
+      0.5940316049382716
+    ],
+    "expected_equal_weight_js_under_pair_mixture": 0.5294155991852394,
+    "delta": 0.0029532396837772534,
+    "expected_equal_weight_js_under_agent_1": 0.5313831750207831,
+    "expected_equal_weight_js_under_agent_2": 0.5274480233496956
+  },
+  "max_probability_roundoff_correction": 7.105427357601002e-15,
+  "max_root_vs_full_joint_js_error": 3.3306690738754696e-16,
+  "max_opposite_model_private_only_posterior_error": 4.3298697960381105e-15,
+  "initially_inactive_agents_frozen": 77,
+  "opposite_model_total_agents": 144
+}
