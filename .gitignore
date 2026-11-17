@@ -157,3 +157,4 @@ dmypy.json
 .tools/
 .research/
 results/
+!reports/**/data/*.csv
