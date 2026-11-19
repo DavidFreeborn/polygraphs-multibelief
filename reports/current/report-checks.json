@@ -1,6 +1,8 @@
 {
-  "settings": 54,
+  "settings": 45,
   "repetitions_per_setting": 100,
+  "displayed_runs": 4500,
+  "measurement_version": 4,
   "collections": 39,
   "belief_model_collections": 33,
   "trust_collections": 6,
@@ -10,31 +12,29 @@
   "total_plot_panels": 249,
   "all_SVG_XML_valid": true,
   "shared_axis_limits": {
-    "0": 1.0,
-    "11": 1.0,
+    "0": 1,
     "1": 0.5,
-    "2": 6.0,
     "3": 0.6931471805599453,
     "4": 0.6931471805599453,
-    "5": 2.0,
-    "6": 1.0,
-    "7": 1.0
+    "6": 1,
+    "7": 1,
+    "11": 1,
+    "12": 0.5,
+    "2": 6,
+    "5": 1.0
   },
-  "interpretation_paragraphs_removed": true,
-  "browser_layout_checks": "Not executed: local file browser access is blocked. Model diagrams and representative plots inspected by local SVG rendering.",
-  "displayed_settings": 45,
-  "displayed_runs": 4500,
-  "G_and_C_nodes_suppressed": true,
-  "probability_tables_in_results": [
-    "Baseline D",
-    "Converging D",
-    "Polarizing D",
-    "Factionalizing D",
-    "Factionalizing S",
-    "Trust D own",
-    "Trust D report"
+  "factionalizing_upper_nodes": [
+    "H",
+    "S"
   ],
-  "neutral_trust_variant_displayed": false,
+  "factionalizing_lower_nodes": [
+    "X",
+    "Y"
+  ],
+  "factionalizing_G_definition": "X=Y",
+  "factionalizing_focal_H_bit": 2,
+  "trust_prior_all_environments": 0.9,
+  "G_and_C_nodes_suppressed": true,
   "measures_page": true,
   "defined_measures": 9,
   "summary_tables_include_H_population_SD": true,

@@ -17,11 +17,11 @@
       ]
     },
     "initialisation": {
-      "base": "Independent Uniform(0,1) probabilities for root nodes, with the Factionalizing S conditional table .9/.1.",
+      "base": "Independent Uniform(0,1) probabilities for root nodes; Factionalizing uses the Y conditional table .9/.1.",
       "target": "q = first root-probability draw for the same agent and seed.",
       "formula": "P(z) = q Q(z|G=1) for G(z)=1; otherwise (1-q) Q(z|G=0).",
       "interpretation": "Q is the base Bayesian-network prior. P is the matched initial joint prior. Calibration preserves within-stratum distributions but generally introduces dependencies; base CPTs do not factorise P without initial conditioning on G calibration.",
-      "trust": "Unchanged: H prior q; initial source trust .50 or reliable population fraction."
+      "trust": "H prior q; initial source trust .90 in every environment."
     }
   },
   {
@@ -43,11 +43,11 @@
       ]
     },
     "initialisation": {
-      "base": "Independent Uniform(0,1) probabilities for root nodes, with the Factionalizing S conditional table .9/.1.",
+      "base": "Independent Uniform(0,1) probabilities for root nodes; Factionalizing uses the Y conditional table .9/.1.",
       "target": "q = first root-probability draw for the same agent and seed.",
       "formula": "P(z) = q Q(z|G=1) for G(z)=1; otherwise (1-q) Q(z|G=0).",
       "interpretation": "Q is the base Bayesian-network prior. P is the matched initial joint prior. Calibration preserves within-stratum distributions but generally introduces dependencies; base CPTs do not factorise P without initial conditioning on G calibration.",
-      "trust": "Unchanged: H prior q; initial source trust .50 or reliable population fraction."
+      "trust": "H prior q; initial source trust .90 in every environment."
     }
   },
   {
@@ -69,23 +69,23 @@
       ]
     },
     "initialisation": {
-      "base": "Independent Uniform(0,1) probabilities for root nodes, with the Factionalizing S conditional table .9/.1.",
+      "base": "Independent Uniform(0,1) probabilities for root nodes; Factionalizing uses the Y conditional table .9/.1.",
       "target": "q = first root-probability draw for the same agent and seed.",
       "formula": "P(z) = q Q(z|G=1) for G(z)=1; otherwise (1-q) Q(z|G=0).",
       "interpretation": "Q is the base Bayesian-network prior. P is the matched initial joint prior. Calibration preserves within-stratum distributions but generally introduces dependencies; base CPTs do not factorise P without initial conditioning on G calibration.",
-      "trust": "Unchanged: H prior q; initial source trust .50 or reliable population fraction."
+      "trust": "H prior q; initial source trust .90 in every environment."
     }
   },
   {
     "id": 3,
     "name": "Factionalizing",
     "latent_nodes": [
-      "H",
-      "S",
       "X",
-      "Y"
+      "Y",
+      "H",
+      "S"
     ],
-    "G_definition": "H=S",
+    "G_definition": "X=Y",
     "observation": {
       "G": [
         0,
@@ -97,33 +97,51 @@
       ]
     },
     "initialisation": {
-      "base": "Independent Uniform(0,1) probabilities for root nodes, with the Factionalizing S conditional table .9/.1.",
+      "base": "Independent Uniform(0,1) probabilities for root nodes; Factionalizing uses the Y conditional table .9/.1.",
       "target": "q = first root-probability draw for the same agent and seed.",
       "formula": "P(z) = q Q(z|G=1) for G(z)=1; otherwise (1-q) Q(z|G=0).",
       "interpretation": "Q is the base Bayesian-network prior. P is the matched initial joint prior. Calibration preserves within-stratum distributions but generally introduces dependencies; base CPTs do not factorise P without initial conditioning on G calibration.",
-      "trust": "Unchanged: H prior q; initial source trust .50 or reliable population fraction."
+      "trust": "H prior q; initial source trust .90 in every environment."
     },
-    "base_S_CPT": [
+    "base_Y_CPT": [
       {
-        "X": 0,
-        "Y": 0,
-        "P(S=1)": 0.9
+        "H": 0,
+        "S": 0,
+        "P(Y=1)": 0.9
       },
       {
-        "X": 0,
-        "Y": 1,
-        "P(S=1)": 0.1
+        "H": 0,
+        "S": 1,
+        "P(Y=1)": 0.1
       },
       {
-        "X": 1,
-        "Y": 0,
-        "P(S=1)": 0.1
+        "H": 1,
+        "S": 0,
+        "P(Y=1)": 0.1
       },
       {
-        "X": 1,
-        "Y": 1,
-        "P(S=1)": 0.9
+        "H": 1,
+        "S": 1,
+        "P(Y=1)": 0.9
       }
+    ],
+    "edges": [
+      [
+        "H",
+        "Y"
+      ],
+      [
+        "S",
+        "Y"
+      ],
+      [
+        "X",
+        "D_i"
+      ],
+      [
+        "Y",
+        "D_i"
+      ]
     ]
   },
   {
@@ -144,11 +162,12 @@
       ]
     },
     "initialisation": {
-      "base": "Independent Uniform(0,1) probabilities for root nodes, with the Factionalizing S conditional table .9/.1.",
+      "base": "Independent Uniform(0,1) probabilities for root nodes; Factionalizing uses the Y conditional table .9/.1.",
       "target": "q = first root-probability draw for the same agent and seed.",
       "formula": "P(z) = q Q(z|G=1) for G(z)=1; otherwise (1-q) Q(z|G=0).",
       "interpretation": "Q is the base Bayesian-network prior. P is the matched initial joint prior. Calibration preserves within-stratum distributions but generally introduces dependencies; base CPTs do not factorise P without initial conditioning on G calibration.",
-      "trust": "Unchanged: H prior q; initial source trust .50 or reliable population fraction."
-    }
+      "trust": "H prior q; initial source trust .90 in every environment."
+    },
+    "initial_source_reliability": 0.9
   }
 ]

@@ -1,19 +1,27 @@
 {
+  "measurement_version": 4,
+  "focal_H_bit_by_model": [
+    0,
+    0,
+    0,
+    2,
+    0
+  ],
+  "trust_prior_all_environments": 0.9,
   "status": "passed",
-  "runs": 5400,
-  "conditions": 54,
+  "runs": 4500,
+  "conditions": 45,
   "repeats_per_condition": 100,
   "independent_max_absolute_errors": {
     "initial_matched_joint": 7.771561172376096e-16,
-    "replay_log_posterior": 3.637978807091713e-12,
+    "replay_log_posterior": 3.666400516522117e-12,
     "recorded_metrics": 2.278795189776428e-13,
     "focal_H_metrics": 6.006306563222097e-14,
     "matched_G_series": 1.4710455076283324e-15,
     "matched_G_agent_final": 8.719691635405979e-13,
     "baseline_log_odds": 2.0463630789890885e-12,
-    "symmetric_private_only": 3.3306690738754696e-13,
     "full_joint_trust": 1.1102230246251565e-16,
-    "known_reliable_baseline": 6.183942247162122e-14
+    "known_reliable_control": 3.552713678800501e-15
   },
   "metric_check_seeds": [
     1729,
@@ -22,7 +30,12 @@
   ],
   "independently_checked_finite_action_decisions": 3240000,
   "matched_finite_evidence_and_action_histories": true,
-  "unchanged_baseline_and_trust_runs": 2700,
   "native_dgl_executed_here": false,
-  "r_backend_executed_here": false
+  "r_backend_executed_here": false,
+  "paired_regression_checks": {
+    "unchanged_finite_evidence_and_final_joint": 3600,
+    "unchanged_nonpristine_trust_runs": 600,
+    "factionalizing_runs_with_recomputed_H": 900,
+    "rerun_pristine_trust_runs": 300
+  }
 }

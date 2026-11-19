@@ -21,13 +21,13 @@ def specifications(model):
     if model:
         nodes.append(binary_node('S'))
     if model == 3:
-        nodes = [binary_node('H'), binary_node('S', ['X', 'Y'], [[.9,.1],[.1,.9]]), binary_node('X'), binary_node('Y')]
+        nodes = [binary_node('X'), binary_node('Y', ['H', 'S'], [[.9,.1],[.1,.9]]), binary_node('H'), binary_node('S')]
     if model == 0:
         observation = {'parents':['H'], 'probability':[.45,.55]}
     elif model == 1:
         observation = {'parents':['H','S'], 'probability':[[.45,.45],[.45,.55]]}
     else:
-        observation = {'parents':['H','S'], 'probability':[[.55,.45],[.45,.55]]}
+        observation = {'parents':['X','Y'] if model==3 else ['H','S'], 'probability':[[.55,.45],[.45,.55]]}
     return nodes, observation
 
 
@@ -58,7 +58,7 @@ def replay(path):
         p.multibelief.true_probability = .55
         p.multibelief.source_mode = ['honest','uninformative','opposite'][run['environment']]
         model = ReportedMultiBeliefOp(graph,p)
-        # The worker enumerates H as the fastest axis; PolyGraphs uses C order.
+        # The worker uses the listed node order with the first node as its fastest axis.
         bits=len(nodes)
         mapping=np.array([sum(int(model.assignments[s,k])<<k for k in range(bits)) for s in range(1<<bits)])
         model.initial_log_joint=np.array(run['initial'])[:,mapping]

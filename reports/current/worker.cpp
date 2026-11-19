@@ -54,7 +54,7 @@ double kl_mean(const Matrix& a){
     }
     return max(0.,z*n/(n-1));
 }
-array<double,8> diagnostics(const Matrix&logs,const vector<int>&good,int bits){
+array<double,8> diagnostics(const Matrix&logs,const vector<int>&good,int bits,int focal_bit=0){
     int n=logs.size(),k=logs[0].size();
     Matrix prod(n,vector<double>(k));
     vector<double> h(n),focal(n);
@@ -62,7 +62,7 @@ array<double,8> diagnostics(const Matrix&logs,const vector<int>&good,int bits){
     for(int i=0;i<n;++i){
         for(int s=0;s<k;++s){
             if(good[s])h[i]+=exp(logs[i][s]);
-            if(s&1)focal[i]+=exp(logs[i][s]);
+            if((s>>focal_bit)&1)focal[i]+=exp(logs[i][s]);
         }
         for(int b=0;b<bits;++b){
             double v[2]={
@@ -228,11 +228,11 @@ void run(const Design&d,int seed,int rounds,const string&out){
     if(trust)update_trust();
     for(int t=0;t<=rounds;++t){
         if(t<=100||t%5==0||t==rounds){
-            auto m=diagnostics(logs,good,bits);
+            auto m=diagnostics(logs,good,bits,d.model==3?2:0);
             vector<double>row(m.begin(),m.begin()+6);
             Matrix ordinary_logs;
             for(int i=0;i<N;++i)if(!bad[i])ordinary_logs.push_back(logs[i]);
-            auto om=diagnostics(ordinary_logs,good,bits);
+            auto om=diagnostics(ordinary_logs,good,bits,d.model==3?2:0);
             ordinary.emplace_back(om.begin(),om.begin()+6);
             double tg=0,tb=0,ng=0,nb=0,br=0,exp_edges=0;
             vector<double>tc(N);
@@ -332,7 +332,7 @@ void run(const Design&d,int seed,int rounds,const string&out){
         }
     }
     ofstream f(out+"/runs/"+name+".json");
-    f<<setprecision(16)<<"{\"measurement_version\":3,\"id\":\""<<ident(d)<<"\",\"model\":"<<d.model<<",\"topology\":"<<d.topology<<",\"environment\":"<<d.environment<<",\"trust_prior\":"<<d.trust<<",\"seed\":"<<seed<<",\"rounds\":"<<rounds<<",\"times\":";
+    f<<setprecision(16)<<"{\"measurement_version\":4,\"id\":\""<<ident(d)<<"\",\"model\":"<<d.model<<",\"topology\":"<<d.topology<<",\"environment\":"<<d.environment<<",\"trust_prior\":"<<d.trust<<",\"seed\":"<<seed<<",\"rounds\":"<<rounds<<",\"times\":";
     json_vec(f,times);
     f<<",\"series\":";
     json_mat(f,series);
@@ -361,7 +361,7 @@ void run(const Design&d,int seed,int rounds,const string&out){
 }
 int main(int argc,char**argv){
     string out=argc>1?argv[1]:"data";
-    int rounds=argc>2?stoi(argv[2]):500,repeats=argc>3?stoi(argv[3]):20;
+    int rounds=argc>2?stoi(argv[2]):500,repeats=argc>3?stoi(argv[3]):100;
     int first_seed=argc>5?stoi(argv[5]):1729;
     bool pilot=argc>4&&string(argv[4])=="pilot",trust_only=argc>4&&string(argv[4])=="trust";
     filesystem::create_directories(out+"/raw");
@@ -369,7 +369,7 @@ int main(int argc,char**argv){
     auto start=chrono::steady_clock::now();
     int done=0;
     for(int m=0;m<5;++m)for(int g=0;g<3;++g)for(int e=0;e<3;++e)for(double p:(m==4?vector<double>{
-        .5,e==0?1.:.9
+        .9
     }
     :vector<double>{
         0.

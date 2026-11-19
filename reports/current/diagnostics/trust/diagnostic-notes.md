@@ -1,7 +1,8 @@
 # Trust diagnostic investigation
 
 Scope: 100 paired seeds (1729–1828), cycle topology, disinformation,
-60 agents, 500 rounds. The principal study and its report are unchanged.
+60 agents, 500 rounds, initial source reliability .90. These checks concern
+the same disinformation setting used in the current report.
 
 1. Replay each original baseline/trust evidence history under both inference
 rules. Baseline log odds equal initial log odds plus private log likelihood
