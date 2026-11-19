@@ -33,6 +33,7 @@ from .weightedops import BalaGoyalWeighted2Op, BalaGoyalWeightedOp
 from .multibelief import MultiBeliefOp, BayesianReliabilityOp
 from .batched import BatchedMultiBeliefOp, BatchedBayesianReliabilityOp
 from .reporting import ReportedMultiBeliefOp
+from .torch_batched import TorchMultiBeliefOp, TorchBayesianReliabilityOp
 
 __all__ = [
     "PolyGraphOp",
@@ -41,6 +42,8 @@ __all__ = [
     "BatchedMultiBeliefOp",
     "ReportedMultiBeliefOp",
     "BatchedBayesianReliabilityOp",
+    "TorchMultiBeliefOp",
+    "TorchBayesianReliabilityOp",
     "BalaGoyalOp",
     "NoOp",
     "OConnorWeatherallOp",

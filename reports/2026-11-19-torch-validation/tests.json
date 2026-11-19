@@ -1,0 +1,15 @@
+{
+  "command": "PYTHONPATH=. python -m pytest tests -q",
+  "exit_code": 0,
+  "result": "144 passed, 34 skipped, 1 warning in 11.01s",
+  "passed": 144,
+  "skipped": 34,
+  "skip_reasons": {
+    "R_bnlearn_unavailable": 32,
+    "CUDA_hardware_unavailable": 2
+  },
+  "python": "3.9.6",
+  "torch": "2.2.2",
+  "numpy": "1.26.4",
+  "dgl": "1.1.2"
+}

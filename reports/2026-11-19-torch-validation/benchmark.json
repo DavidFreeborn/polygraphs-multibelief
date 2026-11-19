@@ -1,0 +1,157 @@
+{
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "python": "3.9.6",
+  "torch": "2.2.2",
+  "numpy": "1.26.4",
+  "dgl": "1.1.2",
+  "torch_threads": 1,
+  "topology": "bidirectional cycle",
+  "timing": "median of three batches; five warmup rounds; excludes construction",
+  "cuda_available": false,
+  "results": [
+    {
+      "operator": "MultiBeliefOp",
+      "model": "baseline",
+      "agents": 60,
+      "construction_seconds": 0.0055192499999998645,
+      "inference_seconds_per_round": 0.0025029583000000244,
+      "sampling_seconds_per_round": 3.73209000000152e-05
+    },
+    {
+      "operator": "BatchedMultiBeliefOp",
+      "model": "baseline",
+      "agents": 60,
+      "construction_seconds": 0.004608166000000136,
+      "inference_seconds_per_round": 0.00010412458000000235,
+      "sampling_seconds_per_round": 2.4692499999998673e-05
+    },
+    {
+      "operator": "TorchMultiBeliefOp",
+      "model": "baseline",
+      "agents": 60,
+      "construction_seconds": 0.005257958999999701,
+      "inference_seconds_per_round": 0.00010860708000000052,
+      "sampling_seconds_per_round": 4.512249999999884e-05
+    },
+    {
+      "operator": "MultiBeliefOp",
+      "model": "32-state",
+      "agents": 60,
+      "construction_seconds": 0.01631933299999977,
+      "inference_seconds_per_round": 0.0033572874999999946,
+      "sampling_seconds_per_round": 3.5141700000007606e-05
+    },
+    {
+      "operator": "BatchedMultiBeliefOp",
+      "model": "32-state",
+      "agents": 60,
+      "construction_seconds": 0.01654545900000004,
+      "inference_seconds_per_round": 0.0002076558400000028,
+      "sampling_seconds_per_round": 2.534417000000122e-05
+    },
+    {
+      "operator": "TorchMultiBeliefOp",
+      "model": "32-state",
+      "agents": 60,
+      "construction_seconds": 0.016927540999999824,
+      "inference_seconds_per_round": 0.0001809737499999997,
+      "sampling_seconds_per_round": 4.590959000000172e-05
+    },
+    {
+      "operator": "BayesianReliabilityOp",
+      "model": "trust",
+      "agents": 60,
+      "construction_seconds": 0.007165000000000088,
+      "inference_seconds_per_round": 0.006174058299999974,
+      "sampling_seconds_per_round": 4.9820900000030476e-05
+    },
+    {
+      "operator": "BatchedBayesianReliabilityOp",
+      "model": "trust",
+      "agents": 60,
+      "construction_seconds": 0.007369333999999839,
+      "inference_seconds_per_round": 0.0001491583399999996,
+      "sampling_seconds_per_round": 4.7212910000000715e-05
+    },
+    {
+      "operator": "TorchBayesianReliabilityOp",
+      "model": "trust",
+      "agents": 60,
+      "construction_seconds": 0.007598959000000072,
+      "inference_seconds_per_round": 0.00017671500000000063,
+      "sampling_seconds_per_round": 4.7395000000003404e-05
+    },
+    {
+      "operator": "MultiBeliefOp",
+      "model": "baseline",
+      "agents": 1000,
+      "construction_seconds": 0.06702366599999987,
+      "inference_seconds_per_round": 0.040092216599999994,
+      "sampling_seconds_per_round": 6.993340000001069e-05
+    },
+    {
+      "operator": "BatchedMultiBeliefOp",
+      "model": "baseline",
+      "agents": 1000,
+      "construction_seconds": 0.0685220830000004,
+      "inference_seconds_per_round": 0.00034270207999999693,
+      "sampling_seconds_per_round": 9.965916999999713e-05
+    },
+    {
+      "operator": "TorchMultiBeliefOp",
+      "model": "baseline",
+      "agents": 1000,
+      "construction_seconds": 0.10003316700000031,
+      "inference_seconds_per_round": 0.00022212415999999457,
+      "sampling_seconds_per_round": 0.0001753287499999967
+    },
+    {
+      "operator": "MultiBeliefOp",
+      "model": "32-state",
+      "agents": 1000,
+      "construction_seconds": 0.3057318749999993,
+      "inference_seconds_per_round": 0.052478804099999984,
+      "sampling_seconds_per_round": 6.823330000003125e-05
+    },
+    {
+      "operator": "BatchedMultiBeliefOp",
+      "model": "32-state",
+      "agents": 1000,
+      "construction_seconds": 0.28555812500000055,
+      "inference_seconds_per_round": 0.0009494137500000033,
+      "sampling_seconds_per_round": 5.680040999999747e-05
+    },
+    {
+      "operator": "TorchMultiBeliefOp",
+      "model": "32-state",
+      "agents": 1000,
+      "construction_seconds": 0.3388852500000006,
+      "inference_seconds_per_round": 0.00043183416999999837,
+      "sampling_seconds_per_round": 0.00011162915999999967
+    },
+    {
+      "operator": "BayesianReliabilityOp",
+      "model": "trust",
+      "agents": 1000,
+      "construction_seconds": 0.1115617499999999,
+      "inference_seconds_per_round": 0.09955361669999992,
+      "sampling_seconds_per_round": 8.442920000000243e-05
+    },
+    {
+      "operator": "BatchedBayesianReliabilityOp",
+      "model": "trust",
+      "agents": 1000,
+      "construction_seconds": 0.13561991699999965,
+      "inference_seconds_per_round": 0.00041321083999999785,
+      "sampling_seconds_per_round": 7.876708999999593e-05
+    },
+    {
+      "operator": "TorchBayesianReliabilityOp",
+      "model": "trust",
+      "agents": 1000,
+      "construction_seconds": 0.11496574999999964,
+      "inference_seconds_per_round": 0.0003711137500000028,
+      "sampling_seconds_per_round": 0.00012148625000000024
+    }
+  ]
+}

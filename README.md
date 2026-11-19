@@ -32,6 +32,16 @@ Put `Rscript` on your path, or set `POLYGRAPHS_RSCRIPT` to its full path.
 An independent exact Python backend is available with `multibelief.backend: numpy`.
 These new operations currently run on CPU.
 
+Native PyTorch alternatives, `TorchMultiBeliefOp` and
+`TorchBayesianReliabilityOp`, keep inference and sampling in float64 tensors.
+They support all five study models, retain the existing operators, and use
+genuine private observations with corrupted outgoing reports where configured.
+See the [tensor operator guide](docs/guide/ops/torch-multibelief.md),
+the `torch-*.yaml` examples, and the
+[executed validation and timings](reports/2026-11-19-torch-validation).
+CPU execution is verified; CUDA comparison tests are provided but have not
+been run on GPU hardware.
+
 ```bash
 polygraphs -f examples/multibelief/meta-cycle.yaml
 python -m pytest tests
@@ -52,8 +62,9 @@ The [current study](reports/current) contains the latest
 Download [the report sheets](reports/current/report-and-settings.zip) to read
 them locally. The study displays 100 runs per setting across three topologies
 and three informational environments. Its exact standalone C++ runner,
-plotted aggregates and independent validation are included. Native
-PolyGraphs/DGL execution was not performed for this study.
+plotted aggregates and independent validation are included. The saved study
+was generated with C++; a separate [native PyTorch/DGL replay check](reports/2026-11-19-torch-validation)
+now verifies 108 full-horizon simulations against the preserved runner.
 
 ## Getting Started
 The upstream PolyGraphs release requires an appropriately configured version of PyTorch and DGL; see the [getting started guide](https://akoliousis.com/polygraphs/guide/introduction/getting-started). The PyPI release does not contain this fork's multibelief operations:

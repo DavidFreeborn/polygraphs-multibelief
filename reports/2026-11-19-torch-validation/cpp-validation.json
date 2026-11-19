@@ -1,0 +1,16 @@
+{
+  "source_sha256": "06bc1a53041f45f46510d2a340ea158703c3bf72efaee09cff99a7d145e5c889",
+  "source_unchanged": true,
+  "device": "cpu",
+  "runs": 108,
+  "conditions": 54,
+  "rounds": 500,
+  "repeats": 2,
+  "agents": 60,
+  "decision_checks": 3240000,
+  "max_log_posterior_error": 2.7284841053187847e-12,
+  "max_posterior_error": 2.4069635173873394e-13,
+  "max_trajectory_error": 2.8524491796355633e-14,
+  "max_trust_error": 1.815214645262131e-14,
+  "cpp_generation_log": "20 runs, 0.928244 seconds\n40 runs, 2.46131 seconds\n60 runs, 5.71348 seconds\n80 runs, 9.54865 seconds\n100 runs, 10.3633 seconds\nCompleted 108 runs in 10.7276 seconds"
+}
