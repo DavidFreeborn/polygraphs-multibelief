@@ -43,14 +43,17 @@ include the two multibelief models, propaganda and decision controls, the three
 factionalization cases, learned source reliability, and a custom belief network.
 
 The factionalization examples share fresh observations with social neighbours;
-separately named shared-evidence examples provide cross-checks. The
-[small simulation study](reports/2026-11-17) includes figures, saved trajectories,
-KL/JS diagnostics and an audit of the divergence claims.
+separately named shared-evidence examples provide cross-checks.
 
-The [controlled 60-agent study](reports/2026-11-17-network-study) compares four
-social networks, misinformation and disinformation, and Bayesian source trust.
-It includes a self-contained HTML report, a complete replication protocol and
-raw evidence records. Batched exact-inference operations support larger runs.
+The [current study](reports/current) contains the latest
+[results](reports/current/results.html),
+[experiment setup](reports/current/experiment-settings.html) and
+[measure definitions](reports/current/measures.html).
+Download [the report sheets](reports/current/report-and-settings.zip) to read
+them locally. The study displays 100 runs per setting across three topologies
+and three informational environments. Its exact standalone C++ runner,
+plotted aggregates and independent validation are included. Native
+PolyGraphs/DGL execution was not performed for this study.
 
 ## Getting Started
 The upstream PolyGraphs release requires an appropriately configured version of PyTorch and DGL; see the [getting started guide](https://akoliousis.com/polygraphs/guide/introduction/getting-started). The PyPI release does not contain this fork's multibelief operations:
@@ -78,3 +81,4 @@ Ball, B., Koliousis, A., Mohanan, A. & Peacey, M. [Misinformation and higher-ord
 
 ## Contributing
 Please file an [issue](https://github.com/DavidFreeborn/polygraphs-multibelief/issues) for this fork. The original project is maintained at [alexandroskoliousis/polygraphs](https://github.com/alexandroskoliousis/polygraphs).
+

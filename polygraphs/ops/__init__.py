@@ -32,12 +32,14 @@ from .complex import (
 from .weightedops import BalaGoyalWeighted2Op, BalaGoyalWeightedOp
 from .multibelief import MultiBeliefOp, BayesianReliabilityOp
 from .batched import BatchedMultiBeliefOp, BatchedBayesianReliabilityOp
+from .reporting import ReportedMultiBeliefOp
 
 __all__ = [
     "PolyGraphOp",
     "MultiBeliefOp",
     "BayesianReliabilityOp",
     "BatchedMultiBeliefOp",
+    "ReportedMultiBeliefOp",
     "BatchedBayesianReliabilityOp",
     "BalaGoyalOp",
     "NoOp",

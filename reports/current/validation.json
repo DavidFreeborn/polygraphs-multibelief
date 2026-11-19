@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "runs": 5400,
+  "conditions": 54,
+  "repeats_per_condition": 100,
+  "independent_max_absolute_errors": {
+    "initial_matched_joint": 7.771561172376096e-16,
+    "replay_log_posterior": 3.637978807091713e-12,
+    "recorded_metrics": 2.278795189776428e-13,
+    "focal_H_metrics": 6.006306563222097e-14,
+    "matched_G_series": 1.4710455076283324e-15,
+    "matched_G_agent_final": 8.719691635405979e-13,
+    "baseline_log_odds": 2.0463630789890885e-12,
+    "symmetric_private_only": 3.3306690738754696e-13,
+    "full_joint_trust": 1.1102230246251565e-16,
+    "known_reliable_baseline": 6.183942247162122e-14
+  },
+  "metric_check_seeds": [
+    1729,
+    1779,
+    1828
+  ],
+  "independently_checked_finite_action_decisions": 3240000,
+  "matched_finite_evidence_and_action_histories": true,
+  "unchanged_baseline_and_trust_runs": 2700,
+  "native_dgl_executed_here": false,
+  "r_backend_executed_here": false
+}

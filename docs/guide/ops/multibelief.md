@@ -359,9 +359,11 @@ used by the source itself and shared with neighbours, matching the native
 unreliable-observation convention. This differs from the reliability operations,
 which preserve genuine private observations and alter unreliable outgoing reports.
 
-The [60-agent study](https://github.com/DavidFreeborn/polygraphs-multibelief/tree/main/reports/2026-11-17-network-study) includes
-matched native Bala–Goyal tests, all three source treatments, four graph families,
-and exact source-reliability inference at two initial trust levels.
+The [current study](https://github.com/DavidFreeborn/polygraphs-multibelief/tree/main/reports/current) includes
+100 runs per setting, three topologies, three informational environments,
+matched G priors and learned source reliability. It provides report sheets,
+measure definitions, source and independent numerical validation. These study
+runs used the standalone C++ implementation; native DGL execution was not performed.
 
 ## References
 
@@ -374,3 +376,4 @@ and exact source-reliability inference at two initial trust levels.
   especially section 3.1 and footnote 23.
 - bnlearn, [custom parameter specification](https://www.bnlearn.com/documentation/man/bn.fit.html)
   and [exact inference with gRain](https://www.bnlearn.com/examples/pkg-gRain/).
+

@@ -1,0 +1,18 @@
+{
+  "runs": 200,
+  "seeds": 100,
+  "topology": "cycle",
+  "environment": "disinformation",
+  "intervention": "All 60 agents perform B for 500 rounds, regardless of posterior. Inference rules, priors and random streams unchanged.",
+  "mean_final_baseline": 0.9711939881162971,
+  "mean_final_trust": 0.9922229787469061,
+  "mean_B_trials_per_agent": 500,
+  "paired_mean_trust_minus_baseline": 0.02102899063060911,
+  "paired_difference_SE": 0.0016936564588852284,
+  "normal_approx_95pct_interval": [
+    0.017709423971194065,
+    0.024348557290024157
+  ],
+  "independent_max_log_posterior_error": 7.673861546209082e-13,
+  "same_evidence_between_models": true
+}
