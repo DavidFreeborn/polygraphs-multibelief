@@ -1,0 +1,17 @@
+seed: 1729
+op: TorchBayesianReliabilityOp
+device: cpu
+epsilon: 0.05
+trials: 1
+init.kind: uniform
+network.kind: cycle
+network.size: 60
+simulation.steps: 500
+simulation.repeats: 1
+snapshots.enabled: true
+snapshots.interval: 1
+unreliablenodes: [0, 10, 20, 30, 40, 50]
+multibelief.stop_on_consensus: false
+bayesian_reliability.prior: 0.9
+bayesian_reliability.actual_reliability: 1.0
+bayesian_reliability.unreliable_mode: opposite

@@ -1,0 +1,14 @@
+seed: 1729
+op: TorchMultiBeliefOp
+device: cpu
+epsilon: 0.05
+trials: 1
+init.kind: uniform
+network.kind: cycle
+network.size: 60
+simulation.steps: 500
+simulation.repeats: 1
+snapshots.enabled: true
+snapshots.interval: 1
+multibelief.stop_on_consensus: false
+multibelief.case: baseline

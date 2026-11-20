@@ -41,7 +41,16 @@ install.packages(c("bnlearn", "gRain", "jsonlite"))
 
 Put `Rscript` on your path, or set `POLYGRAPHS_RSCRIPT` to its full path.
 To use the independent Python backend, set `multibelief.backend: numpy`.
-The multibelief operations currently run on CPU.
+The reference multibelief operations run on CPU.
+
+Native PyTorch alternatives, `TorchMultiBeliefOp` and
+`TorchBayesianReliabilityOp`, keep inference and sampling in float64 tensors.
+They support all five current study models and retain the existing operators
+and C++ runner. See the [tensor operator guide](docs/guide/ops/torch-multibelief.md),
+the `torch-*.yaml` examples, and the
+[executed validation and timings](reports/2026-11-19-torch-validation).
+CPU execution is verified; CUDA comparison tests are provided but GPU execution
+has not been verified.
 
 ## Running simulations
 

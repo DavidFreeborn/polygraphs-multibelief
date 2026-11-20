@@ -1,0 +1,26 @@
+seed: 1729
+op: TorchMultiBeliefOp
+device: cpu
+epsilon: 0.05
+trials: 1
+init.kind: uniform
+network.kind: cycle
+network.size: 60
+simulation.steps: 500
+simulation.repeats: 1
+snapshots.enabled: true
+snapshots.interval: 1
+multibelief.stop_on_consensus: false
+multibelief.case: custom
+multibelief.true_probability: 0.55
+multibelief.model:
+  nodes:
+    - {name: X, cpt: [0.5, 0.5]}
+    - name: Y
+      parents: [H, S]
+      cpt: [[[0.1, 0.9], [0.9, 0.1]], [[0.9, 0.1], [0.1, 0.9]]]
+    - {name: H, cpt: [0.5, 0.5]}
+    - {name: S, cpt: [0.5, 0.5]}
+multibelief.observation:
+  parents: [X, Y]
+  probability: [[0.55, 0.45], [0.45, 0.55]]
