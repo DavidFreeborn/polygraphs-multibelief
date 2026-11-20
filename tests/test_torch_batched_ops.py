@@ -1,6 +1,7 @@
 """Controlled evidence checks against independent exact implementations."""
 
 import json
+from pathlib import Path
 
 import dgl
 import h5py
@@ -20,6 +21,29 @@ from polygraphs.ops import (
 from tests.test_batched_ops import params
 
 
+def test_examples_and_replay_match_current_study_specifications():
+    from scripts.validate_torch_cpp import specifications
+
+    root = Path(__file__).resolve().parents[1]
+    published = json.loads((root / "reports/current/model-specifications.json").read_text())
+    for index, name in enumerate(("baseline", "converging", "polarizing", "factionalizing")):
+        nodes, observation = specifications(index)
+        p = polygraphs.hyperparameters.PolyGraphHyperParameters.load(
+            [str(root / f"examples/multibelief/torch-{name}.yaml")]
+        )
+        p.simulation.steps = 2
+        g = graph()
+        model = TorchMultiBeliefOp(g, p)
+        assert list(model.network.names) == published[index]["latent_nodes"]
+        assert [node["name"] for node in nodes] == published[index]["latent_nodes"]
+        assert model.belief_metadata()["observation_parents"] == observation["parents"]
+        np.testing.assert_array_equal(model.metadata["observation_probability"], observation["probability"])
+    trust = polygraphs.hyperparameters.PolyGraphHyperParameters.load(
+        [str(root / "examples/multibelief/torch-trust.yaml")]
+    )
+    assert trust.bayesian_reliability.prior == published[4]["initial_source_reliability"]
+
+
 def study_params(case):
     p = params()
     p.multibelief.case = "custom"
@@ -28,8 +52,8 @@ def study_params(case):
     if case in ("converging", "polarizing"):
         nodes += [binary_node("S")]
     elif case == "factionalizing":
-        nodes += [binary_node("S", ["X", "Y"], [[.9, .1], [.1, .9]]),
-                  binary_node("X"), binary_node("Y")]
+        nodes = [binary_node("X"), binary_node("Y", ["H", "S"], [[.9, .1], [.1, .9]]),
+                 binary_node("H"), binary_node("S")]
     elif case == "32-state":
         p.multibelief.case = "networked-factionalization3"
         return p
@@ -38,8 +62,9 @@ def study_params(case):
     if case in ("converging", "polarizing"):
         p.multibelief.priors["S"] = .73
     elif case == "factionalizing":
-        p.multibelief.priors.update({"X": .24, "Y": .81})
-    scope = ["H"] if case == "baseline" else ["H", "S"]
+        p.multibelief.priors = {"X": .31, "H": .24, "S": .81}
+    scope = (["H"] if case == "baseline" else
+             ["X", "Y"] if case == "factionalizing" else ["H", "S"])
     probability = ([.45, .55] if case == "baseline" else
                    [[.45, .45], [.45, .55]] if case == "converging" else
                    [[.55, .45], [.45, .55]])

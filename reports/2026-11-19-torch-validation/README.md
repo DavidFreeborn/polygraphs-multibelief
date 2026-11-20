@@ -2,14 +2,15 @@
 
 The new optional operators execute exact Bayesian inference inside PolyGraphs
 using PyTorch tensors. Existing reference operations and historical study
-results are unchanged. The C++ worker used below was recovered from the current
-`multibelief-results-2026-11-19.zip` archive, version 2. The same bytes are
-already published as `reports/current/worker.cpp`; the verification script
-uses that preserved source directly and does not add a redundant copy.
+results are unchanged. The verification uses the current published
+`reports/current/worker.cpp` directly. Its corrected Factionalizing model has
+H and S as the upper root nodes, X and Y as the observed pair, and Y depending
+on H and S. Initial source trust is .90 in every environment. No C++ source or
+published study result was changed by this integration.
 
 ## Correctness
 
-The full suite passed: **144 tests passed; 34 skipped**. The skips comprise 32
+The full suite passed: **145 tests passed; 34 skipped**. The skips comprise 32
 R/bnlearn checks because R was unavailable and two CUDA checks because there was
 no CUDA hardware. CPU inference was executed using Python 3.9.6, PyTorch 2.2.2,
 NumPy 1.26.4 and DGL 1.1.2 on macOS arm64.
@@ -32,21 +33,21 @@ trust factorization; these were included in the executed full suite.
 
 ### Comparison with the archived C++ worker
 
-The unmodified worker regenerated **108 simulations**: all 54 experimental
+The unmodified worker regenerated **90 simulations**: all 45 experimental
 conditions, two seeds, 60 agents and the full 500-round horizon. The conditions
 cover all five models, all three graph families and all three environments,
-including both trust-prior variants. The replay restores each saved initial
+with initial source trust .90 in each environment. The replay restores each saved initial
 joint, including the matched-P(G) calibration, and supplies the recorded private
 observations and outgoing reports to the actual PyTorch/DGL operators.
 
-All **3,240,000 experiment decisions matched**. Maximum absolute differences:
+All **2,700,000 experiment decisions matched**. Maximum absolute differences:
 
 | Comparison | Maximum error |
 | --- | ---: |
-| Final posterior probability | 2.407e-13 |
-| Final log posterior | 2.729e-12 |
-| Sampled P(G)/P(H) means and population standard deviations | 2.853e-14 |
-| Sampled source-trust and Brier summaries | 1.816e-14 |
+| Final posterior probability | 5.762e-14 |
+| Final log posterior | 1.823e-12 |
+| Sampled P(G)/P(H) means and population standard deviations | 2.852e-14 |
+| Sampled source-trust and Brier summaries | 1.815e-14 |
 
 These are checks of final posteriors and sampled population summaries, plus
 all individual experiment decisions. They do not claim that every individual
@@ -54,8 +55,8 @@ intermediate posterior was exported by the C++ worker. Separate unit tests
 check complete intermediate joints and H-source pairs over controlled sequences.
 
 C++ source SHA-256:
-`06bc1a53041f45f46510d2a340ea158703c3bf72efaee09cff99a7d145e5c889`.
-The archived and published sources match, and source bytes were checked
+`21d93aeec94e6c7be51f47f44294a0cfe4e9fa4e6539b7dd7b561ca02dce72c3`.
+The source bytes were checked
 unchanged after compilation and execution. No existing C++ source was edited.
 
 One semantic difference from the older finite NumPy operations is intentional:
@@ -90,8 +91,8 @@ slightly faster for the 32-state model. At 1,000 agents, its evidence reduction
 also avoids the dense N-by-N matrix used by the finite batched NumPy operator.
 No GPU timing or CPU-versus-GPU speedup has been established.
 
-The preserved C++ worker generated all 108 full 500-round simulations in
-10.73 seconds in the recorded validation run, including diagnostics, gzip
+The preserved C++ worker generated all 90 full 500-round simulations in
+9.97 seconds in the recorded validation run, including diagnostics, gzip
 records and JSON output. This is a full-worker timing, whereas the table above
 measures inference only. It does not establish a like-for-like speed ratio
 between C++ and PyTorch; no claim of a PyTorch speed advantage over C++ is made.

@@ -147,7 +147,7 @@ PYTHONPATH=. python scripts/benchmark_torch_batched.py --output /tmp/benchmark.j
 
 The C++ script compiles the published `reports/current/worker.cpp` without changing it
 (or an alternative source passed with `--source`),
-regenerates 54 conditions with two seeds and 500 rounds, replays every private
+regenerates 45 conditions with two seeds and 500 rounds, replays every private
 observation and report through the actual DGL operators, and checks decisions,
 final posteriors, sampled P(G)/P(H) trajectories, population standard deviations
 and trust summaries. It writes all regenerated per-run records to a temporary

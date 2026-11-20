@@ -26,14 +26,15 @@ def specifications(model):
     if model:
         nodes.append(binary_node("S"))
     if model == 3:
-        nodes = [binary_node("H"), binary_node("S", ["X", "Y"], [[.9, .1], [.1, .9]]),
-                 binary_node("X"), binary_node("Y")]
+        nodes = [binary_node("X"), binary_node("Y", ["H", "S"], [[.9, .1], [.1, .9]]),
+                 binary_node("H"), binary_node("S")]
     if model == 0:
         observation = {"parents": ["H"], "probability": [.45, .55]}
     elif model == 1:
         observation = {"parents": ["H", "S"], "probability": [[.45, .45], [.45, .55]]}
     else:
-        observation = {"parents": ["H", "S"], "probability": [[.55, .45], [.45, .55]]}
+        observation = {"parents": ["X", "Y"] if model == 3 else ["H", "S"],
+                       "probability": [[.55, .45], [.45, .55]]}
     return nodes, observation
 
 
@@ -65,7 +66,7 @@ def replay(path, device="cpu"):
         p.multibelief.true_probability = .55
         p.multibelief.source_mode = ["honest", "uninformative", "opposite"][run["environment"]]
         model = TorchMultiBeliefOp(graph, p)
-        # C++ enumerates H as its fastest axis; NumPy/PyTorch use C order.
+        # C++ uses the first listed node as its fastest axis; PyTorch uses C order.
         weights = 2 ** torch.arange(len(nodes), device=device)
         mapping = (model.assignments * weights).sum(1)
         initial = torch.tensor(run["initial"], dtype=torch.float64, device=device)[:, mapping]
@@ -143,10 +144,10 @@ def main():
         result = subprocess.run([str(root / "worker"), str(root / "data"), str(args.rounds), str(args.repeats), "all", "1729"], check=True, capture_output=True, text=True)
         checks = [replay(path, args.device) for path in sorted((root / "data/runs").glob("*.json"))]
     assert args.source.read_bytes() == source_bytes, "C++ source changed"
-    assert len(checks) == 54 * args.repeats
+    assert len(checks) == 45 * args.repeats
     summary = {
         "source_sha256": checksum, "source_unchanged": True, "device": args.device,
-        "runs": len(checks), "conditions": 54, "rounds": args.rounds,
+        "runs": len(checks), "conditions": 45, "rounds": args.rounds,
         "repeats": args.repeats, "agents": 60,
         "decision_checks": sum(c["decision_checks"] for c in checks),
         **{"max_" + k: max(c[k] for c in checks) for k in checks[0] if k != "decision_checks"},

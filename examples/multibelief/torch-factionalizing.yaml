@@ -15,12 +15,12 @@ multibelief.case: custom
 multibelief.true_probability: 0.55
 multibelief.model:
   nodes:
-    - {name: H, cpt: [0.5, 0.5]}
-    - name: S
-      parents: [X, Y]
-      cpt: [[[0.1, 0.9], [0.9, 0.1]], [[0.9, 0.1], [0.1, 0.9]]]
     - {name: X, cpt: [0.5, 0.5]}
-    - {name: Y, cpt: [0.5, 0.5]}
+    - name: Y
+      parents: [H, S]
+      cpt: [[[0.1, 0.9], [0.9, 0.1]], [[0.9, 0.1], [0.1, 0.9]]]
+    - {name: H, cpt: [0.5, 0.5]}
+    - {name: S, cpt: [0.5, 0.5]}
 multibelief.observation:
-  parents: [H, S]
+  parents: [X, Y]
   probability: [[0.55, 0.45], [0.45, 0.55]]

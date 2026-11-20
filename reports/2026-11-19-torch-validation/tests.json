@@ -1,8 +1,8 @@
 {
   "command": "PYTHONPATH=. python -m pytest tests -q",
   "exit_code": 0,
-  "result": "144 passed, 34 skipped, 1 warning in 11.01s",
-  "passed": 144,
+  "result": "145 passed, 34 skipped, 1 warning in 10.52s",
+  "passed": 145,
   "skipped": 34,
   "skip_reasons": {
     "R_bnlearn_unavailable": 32,
